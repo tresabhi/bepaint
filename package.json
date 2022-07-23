@@ -30,7 +30,8 @@
     "lint": "tslint -p tsconfig.json",
     "prepare": "yarn run build",
     "prepublishOnly": "yarn test && yarn run lint",
-    "build": "tsc"
+    "build": "tsc",
+    "dev:docs": "cd docs && bundle exec jekyll serve"
   },
   "dependencies": {
     "lodash": "^4.17.21"

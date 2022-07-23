@@ -7,7 +7,7 @@ import { createTextColors } from './createTextColors';
 export const createColors = <
   Prefix extends string,
   NamedScale extends Scale<Prefix>,
-  Suffix extends string,
+  Suffix extends string = '',
 >(
   scale: NamedScale,
   suffix?: Suffix,

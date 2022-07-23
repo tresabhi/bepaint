@@ -3,3 +3,7 @@ node_modules
 
 # NPM
 dist
+
+# Docs
+_site
+.jekyll-cache

@@ -2,6 +2,8 @@
 
 Quickly generate elegant Stitches themes with minimum code. We recommend using color scales by [Radix Colors](https://www.radix-ui.com/colors) since Stitches Dye follows the ["Understanding the Scales" guidelines](https://www.radix-ui.com/docs/colors/palette-composition/understanding-the-scale) from that very project.
 
+Full documentation will be added soon!
+
 # Quick Start
 
 ## Installation
@@ -46,7 +48,3 @@ export const { theme, css, ... } = createStitches({
 A Typescript-powered list of all the theme color tokens.
 
 ![Type-safe theme color predictions](https://i.imgur.com/ol8ncOF.png)
-
-# Documentation
-
-https://tresabhi.github.io/stitches-dye/
