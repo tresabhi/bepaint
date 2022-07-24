@@ -35,15 +35,9 @@ jobs:
       - name: Install dependencies
         run: yarn
 
-      - name: Run tests
-        run: yarn run test
-
-      - name: Lint
-        run: yarn run lint
-
       - name: Publish to NPM
         uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM_TOKEN }}
           access: public
-          # dry-run: true
+          dry-run: true

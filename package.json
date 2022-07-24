@@ -1,7 +1,7 @@
 {
   "name": "stitches-dye",
   "description": "🧵 Quickly generate elegant Stitches themes with minimum code",
-  "version": "1.0.0",
+  "version": "1.0.0-alpha.1",
   "private": false,
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

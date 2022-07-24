@@ -14,6 +14,7 @@ export const createBorderColors = <
   scale: NamedScale,
   suffix?: Suffix,
 ) => {
+  suffix = suffix ?? ('' as Suffix);
   const { prefix } = parseScale<Prefix>(scale);
 
   return {
