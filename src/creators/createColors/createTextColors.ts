@@ -1,7 +1,7 @@
-import { Scale } from '../../types/scale';
+import { Scale } from '../../types';
 import { parseScale } from '../../utilities';
 
-export type TextColorTokens<Suffix extends string> =
+export type TextColorTokens<Suffix extends string = ''> =
   | `lowContrastText${Suffix}`
   | `highContrastText${Suffix}`;
 

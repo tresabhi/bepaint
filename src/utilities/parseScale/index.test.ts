@@ -1,5 +1,5 @@
 import { amberDark } from '@radix-ui/colors';
-import { parseScale } from './parseScale';
+import { parseScale } from '.';
 
 test(`${parseScale.name} correctly parses scale`, () => {
   const parsed = parseScale(amberDark);

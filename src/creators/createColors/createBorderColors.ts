@@ -1,8 +1,7 @@
-import { ComponentStates } from '../../types';
-import { Scale } from '../../types/scale';
+import { ComponentStates, Scale } from '../../types';
 import { parseScale } from '../../utilities';
 
-export type BorderColorTokens<Suffix extends string> =
+export type BorderColorTokens<Suffix extends string = ''> =
   | `nonInteractiveComponentBorder${Suffix}`
   | `interactiveComponentBorder${Suffix}`;
 

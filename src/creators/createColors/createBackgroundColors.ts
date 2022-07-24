@@ -1,7 +1,7 @@
-import { Scale } from '../../types/scale';
+import { Scale } from '../../types';
 import { parseScale } from '../../utilities';
 
-export type BackgroundColorTokens<Suffix extends string> =
+export type BackgroundColorTokens<Suffix extends string = ''> =
   | `appBackground${Suffix}`
   | `tableStripeBackground${Suffix}`
   | `codeBlockBackground${Suffix}`

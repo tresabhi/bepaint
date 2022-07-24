@@ -1,4 +1,4 @@
-import { Scale } from '../../types/scale';
+import { Scale } from '../../types';
 import { createBackgroundColors } from './createBackgroundColors';
 import { createBorderColors } from './createBorderColors';
 import { createComponentBackgroundColors } from './createComponentBackgroundColors';

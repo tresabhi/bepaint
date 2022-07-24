@@ -1,4 +1,4 @@
-import { Numbered, Scale } from '../types';
+import { Numbered, Scale } from '../../types';
 
 export const prefixRegex = /^[a-zA-Z]+/;
 
