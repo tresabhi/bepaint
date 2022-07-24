@@ -1,4 +1,4 @@
-import { createGoogleFonts } from './createGoogleFonts';
+import { createGoogleFonts } from '.';
 
 test(`${createGoogleFonts.name} correctly generates multiple Google fonts URLs`, () => {
   const URLs = createGoogleFonts(['Roboto Flex', 'Inter']);

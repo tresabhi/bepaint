@@ -1,5 +1,2 @@
-export * from './colors';
+export * from './createColors';
 export * from './createGoogleFonts';
-export * from './createIndeces';
-export * from './createSizes';
-
