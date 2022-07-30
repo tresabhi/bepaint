@@ -1,9 +1,12 @@
-import { Scale } from '../../types';
-import { parseScale } from '../../utilities';
+import { Scale, Suffixed } from '../../types';
+import { parseScale, suffixed } from '../../utilities';
 
-export type TextColorTokens<Suffix extends string = ''> =
-  | `lowContrastText${Suffix}`
-  | `highContrastText${Suffix}`;
+export type TextColorToken = 'lowContrastText' | 'highContrastText';
+
+export type TextColors<Suffix extends string> = Record<
+  Suffixed<Suffix, TextColorToken>,
+  string
+>;
 
 export const createTextColors = <
   Prefix extends string,
@@ -13,11 +16,11 @@ export const createTextColors = <
   scale: NamedScale,
   suffix?: Suffix,
 ) => {
-  suffix = suffix ?? ('' as Suffix);
-  const { prefix } = parseScale<Prefix>(scale);
+  const s = suffixed(suffix);
+  const { p } = parseScale<Prefix>(scale);
 
   return {
-    [`lowContrastText${suffix}`]: scale[`${prefix}11`],
-    [`highContrastText${suffix}`]: scale[`${prefix}12`],
-  } as unknown as Record<TextColorTokens<Suffix>, string>;
+    [`lowContrastText${s}`]: scale[`${p}11`],
+    [`highContrastText${s}`]: scale[`${p}12`],
+  } as unknown as TextColors<Suffix>;
 };

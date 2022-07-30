@@ -1,21 +1,25 @@
-import { CSSConvertibleUnit, toUnit } from '../../utilities';
+import { Suffixed } from '../../types';
+import { CSSConvertibleUnit, suffixed, toUnit } from '../../utilities';
 import { SizeVariants } from '../createSpaces';
 
-export type SizeToken<Suffix extends string = ''> =
-  | `icon${SizeVariants}${Suffix}`
-  | `iconInText${Suffix}`;
+export type SizeToken = `icon${SizeVariants}` | 'iconInText';
+
+export type Sizes<Suffix extends string> = Record<
+  Suffixed<Suffix, SizeToken>,
+  string
+>;
 
 export const createSizes = <Suffix extends string = ''>(
   unit: CSSConvertibleUnit = 'rem',
   suffix?: Suffix,
 ) => {
   const to = (value: number) => toUnit(value, unit);
-  suffix = suffix ?? ('' as Suffix);
+  const s = suffixed(suffix);
 
   return {
-    [`icon${suffix}`]: to(16),
-    [`iconMajor${suffix}`]: to(32),
-    [`iconMinor${suffix}`]: to(8),
-    [`iconInText${suffix}`]: '1em',
-  } as Record<SizeToken<Suffix>, string>;
+    [`icon${s}`]: to(16),
+    [`iconMajor${s}`]: to(32),
+    [`iconMinor${s}`]: to(8),
+    [`iconInText${s}`]: '1em',
+  } as Sizes<Suffix>;
 };

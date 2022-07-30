@@ -8,3 +8,4 @@ dist
 # Docs
 _site
 .jekyll-cache
+storybook-static

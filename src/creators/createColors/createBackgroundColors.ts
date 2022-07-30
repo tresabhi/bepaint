@@ -1,13 +1,18 @@
-import { Scale } from '../../types';
-import { parseScale } from '../../utilities';
+import { Scale, Suffixed } from '../../types';
+import { parseScale, suffixed } from '../../utilities';
 
-export type BackgroundColorTokens<Suffix extends string = ''> =
-  | `appBackground${Suffix}`
-  | `tableStripeBackground${Suffix}`
-  | `codeBlockBackground${Suffix}`
-  | `cardBackground${Suffix}`
-  | `sidebarBackground${Suffix}`
-  | `canvasBackground${Suffix}`;
+export type BackgroundColorToken = `${
+  | 'appBackground'
+  | 'tableStripeBackground'
+  | 'codeBlockBackground'
+  | 'cardBackground'
+  | 'sidebarBackground'
+  | 'canvasBackground'}${1 | 2}`;
+
+export type BackgroundColors<Suffix extends string> = Record<
+  Suffixed<Suffix, BackgroundColorToken>,
+  string
+>;
 
 export const createBackgroundColors = <
   Prefix extends string,
@@ -17,21 +22,21 @@ export const createBackgroundColors = <
   scale: NamedScale,
   suffix?: Suffix,
 ) => {
-  suffix = suffix ?? ('' as Suffix);
-  const { prefix } = parseScale<Prefix>(scale);
+  const s = suffixed(suffix);
+  const { p } = parseScale<Prefix>(scale);
 
   return {
-    [`appBackground${suffix}1`]: scale[`${prefix}1`],
-    [`appBackground${suffix}2`]: scale[`${prefix}2`],
-    [`tableStripeBackground${suffix}1`]: scale[`${prefix}1`],
-    [`tableStripeBackground${suffix}2`]: scale[`${prefix}2`],
-    [`codeBlockBackground${suffix}1`]: scale[`${prefix}1`],
-    [`codeBlockBackground${suffix}2`]: scale[`${prefix}2`],
-    [`cardBackground${suffix}1`]: scale[`${prefix}1`],
-    [`cardBackground${suffix}2`]: scale[`${prefix}2`],
-    [`sidebarBackground${suffix}1`]: scale[`${prefix}1`],
-    [`sidebarBackground${suffix}2`]: scale[`${prefix}2`],
-    [`canvasBackground${suffix}1`]: scale[`${prefix}1`],
-    [`canvasBackground${suffix}2`]: scale[`${prefix}2`],
-  } as unknown as Record<BackgroundColorTokens<`${Suffix}${1 | 2}`>, string>;
+    [`appBackground${s}1`]: scale[`${p}1`],
+    [`appBackground${s}2`]: scale[`${p}2`],
+    [`tableStripeBackground${s}1`]: scale[`${p}1`],
+    [`tableStripeBackground${s}2`]: scale[`${p}2`],
+    [`codeBlockBackground${s}1`]: scale[`${p}1`],
+    [`codeBlockBackground${s}2`]: scale[`${p}2`],
+    [`cardBackground${s}1`]: scale[`${p}1`],
+    [`cardBackground${s}2`]: scale[`${p}2`],
+    [`sidebarBackground${s}1`]: scale[`${p}1`],
+    [`sidebarBackground${s}2`]: scale[`${p}2`],
+    [`canvasBackground${s}1`]: scale[`${p}1`],
+    [`canvasBackground${s}2`]: scale[`${p}2`],
+  } as unknown as BackgroundColors<Suffix>;
 };

@@ -17,8 +17,6 @@ export const createColors = <
   scale: NamedScale,
   suffix?: Suffix,
 ) => {
-  suffix = suffix ?? ('' as Suffix);
-
   return {
     ...createBackgroundColors(scale, suffix),
     ...createComponentBackgroundColors(scale, suffix),

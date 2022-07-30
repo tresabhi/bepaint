@@ -1,13 +1,19 @@
+import { Suffixed } from '../../types';
 import { CSSConvertibleUnit, toUnit } from '../../utilities';
 
 export type SizeVariants = '' | 'Major' | 'Minor';
 
-export type SpaceToken<Suffix extends string = ''> =
-  | `gapRelated${SizeVariants}${Suffix}`
-  | `gapUnrelated${SizeVariants}${Suffix}`
-  | `marginRelated${SizeVariants}${Suffix}`
-  | `marginUnrelated${SizeVariants}${Suffix}`
-  | `padding${SizeVariants}${Suffix}`;
+export type SpaceToken =
+  | `gapRelated${SizeVariants}`
+  | `gapUnrelated${SizeVariants}`
+  | `marginRelated${SizeVariants}`
+  | `marginUnrelated${SizeVariants}`
+  | `padding${SizeVariants}`;
+
+export type Spaces<Suffix extends string> = Record<
+  Suffixed<Suffix, SpaceToken>,
+  string
+>;
 
 export const createSpaces = <Suffix extends string = ''>(
   unit: CSSConvertibleUnit = 'rem',
@@ -34,5 +40,5 @@ export const createSpaces = <Suffix extends string = ''>(
     [`padding${suffix}`]: to(8),
     [`paddingMajor${suffix}`]: to(16),
     [`paddingMinor${suffix}`]: to(4),
-  } as Record<SpaceToken<Suffix>, string>;
+  } as Spaces<Suffix>;
 };

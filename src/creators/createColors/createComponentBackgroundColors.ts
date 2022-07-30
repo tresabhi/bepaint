@@ -1,9 +1,14 @@
-import { ComponentStates, Scale } from '../../types';
-import { parseScale } from '../../utilities';
+import { Scale, Suffixed } from '../../types';
+import { parseScale, suffixed } from '../../utilities';
 
-export type ComponentBackgroundColorTokens<Suffix extends string = ''> =
-  | `componentBackground${Suffix}`
-  | `callToActionComponentBackground${Suffix}`;
+export type ComponentBackgroundColorToken =
+  | 'componentBackground'
+  | 'callToActionComponentBackground';
+
+export type ComponentBackgroundColors<Suffix extends string> = Record<
+  Suffixed<Suffix, ComponentBackgroundColorToken>,
+  string
+>;
 
 export const createComponentBackgroundColors = <
   Prefix extends string,
@@ -13,18 +18,15 @@ export const createComponentBackgroundColors = <
   scale: NamedScale,
   suffix?: Suffix,
 ) => {
-  suffix = suffix ?? ('' as Suffix);
-  const { prefix } = parseScale<Prefix>(scale);
+  const s = suffixed(suffix);
+  const { p } = parseScale<Prefix>(scale);
 
   return {
-    [`componentBackground${suffix}`]: scale[`${prefix}3`],
-    [`componentBackgroundHover${suffix}`]: scale[`${prefix}4`],
-    [`componentBackgroundActive${suffix}`]: scale[`${prefix}5`],
-    [`callToActionComponentBackground${suffix}`]: scale[`${prefix}4`],
-    [`callToActionComponentBackgroundHover${suffix}`]: scale[`${prefix}5`],
-    [`callToActionComponentBackgroundActive${suffix}`]: scale[`${prefix}6`],
-  } as unknown as Record<
-    ComponentBackgroundColorTokens<`${ComponentStates}${Suffix}`>,
-    string
-  >;
+    [`componentBackground${s}`]: scale[`${p}3`],
+    [`componentBackgroundHover${s}`]: scale[`${p}4`],
+    [`componentBackgroundActive${s}`]: scale[`${p}5`],
+    [`callToActionComponentBackground${s}`]: scale[`${p}4`],
+    [`callToActionComponentBackgroundHover${s}`]: scale[`${p}5`],
+    [`callToActionComponentBackgroundActive${s}`]: scale[`${p}6`],
+  } as unknown as ComponentBackgroundColors<Suffix>;
 };
