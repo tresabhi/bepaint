@@ -1,7 +1,10 @@
 import { Range, Suffixed } from '../../types';
 import { suffixed, toUnit } from '../../utilities';
 
-export type HeadingFontSizeToken = `heading${Range<1, 6>}` | 'subheading';
+export type HeadingFontSizeToken =
+  | 'title'
+  | `heading${Range<1, 6>}`
+  | 'subheading';
 
 export type HeadingFontSizes<Suffix extends string> = Record<
   Suffixed<Suffix, HeadingFontSizeToken>,
@@ -41,6 +44,7 @@ export const createHeadingFontSizes = <Suffix extends string = ''>(
   };
 
   return {
+    [`title${s}`]: to(0.25),
     [`heading${s}1`]: to(1),
     [`heading${s}2`]: to(2),
     [`heading${s}3`]: to(3),

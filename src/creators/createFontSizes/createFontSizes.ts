@@ -2,12 +2,14 @@ import { Suffixed } from '../../types';
 import { suffixed, toUnit } from '../../utilities';
 
 export type FontSizeToken =
-  | 'title'
   | 'paragraph'
   | 'code'
   | 'codeInline'
   | 'footnote'
-  | 'callToAction';
+  | 'label'
+  | 'componentInteractive'
+  | 'componentCompact'
+  | 'componentCallToAction';
 
 export type FontSizes<Suffix extends string> = Record<
   Suffixed<Suffix, FontSizeToken>,
@@ -25,11 +27,13 @@ export const createFontSizes = <Suffix extends string = ''>(
   const to = (value: number) => toUnit(value, 'rem');
 
   return {
-    [`title${s}`]: to(48),
     [`paragraph${s}`]: to(16),
     [`code${s}`]: to(14),
-    [`codeInline${s}`]: to(16),
+    [`codeInline${s}`]: `calc(1em - ${to(2)})`,
     [`footnote${s}`]: to(12),
-    [`callToAction${s}`]: to(20),
+    [`label${s}`]: to(14),
+    [`componentInteractive${s}`]: to(16),
+    [`componentCompact${s}`]: to(12),
+    [`componentCallToAction${s}`]: to(20),
   } as FontSizes<Suffix>;
 };

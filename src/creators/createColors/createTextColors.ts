@@ -1,7 +1,7 @@
 import { Scale, Suffixed } from '../../types';
 import { parseScale, suffixed } from '../../utilities';
 
-export type TextColorToken = 'lowContrastText' | 'highContrastText';
+export type TextColorToken = 'textLowContrast' | 'textHighContrast';
 
 export type TextColors<Suffix extends string> = Record<
   Suffixed<Suffix, TextColorToken>,
@@ -20,7 +20,7 @@ export const createTextColors = <
   const { p } = parseScale<Prefix>(scale);
 
   return {
-    [`lowContrastText${s}`]: scale[`${p}11`],
-    [`highContrastText${s}`]: scale[`${p}12`],
+    [`textLowContrast${s}`]: scale[`${p}11`],
+    [`textHighContrast${s}`]: scale[`${p}12`],
   } as unknown as TextColors<Suffix>;
 };

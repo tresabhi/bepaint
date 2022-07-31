@@ -1,8 +1,8 @@
-# 🧵 Stitches Dye
+# 🎡 Theme Park
 
-Quickly generate elegant Stitches themes with minimum code. We recommend using color scales by [Radix Colors](https://www.radix-ui.com/colors) since Stitches Dye follows the ["Understanding the Scales" guidelines](https://www.radix-ui.com/docs/colors/palette-composition/understanding-the-scale) from that very project.
+<!-- TODO: make the logo a combo of 🎡 and 🏞️ -->
 
-Full documentation will be added soon!
+Quickly generate elegant themes with minimum code. We recommend using color scales by [Radix Colors](https://www.radix-ui.com/colors) since Theme Park follows the ["Understanding the Scales" guidelines](https://www.radix-ui.com/docs/colors/palette-composition/understanding-the-scale) from that very project.
 
 # Quick Start
 
@@ -11,13 +11,13 @@ Full documentation will be added soon!
 ### NPM
 
 ```
-npm install --save stitches-dye
+npm install --save theme-park
 ```
 
 ### Yarn
 
 ```
-yarn add stitches-dye
+yarn add theme-park
 ```
 
 ## Usage
@@ -34,10 +34,10 @@ export const { theme, css, ... } = createStitches({
       ...createColors(mauve),
 
       // accent colors for things like call-to-action components
-      ...createColors(indigo, 'Accent'),
+      ...createColors(indigo, 'accent'),
 
       // ...or, choose a sub-category.
-      ...createTextColors(red, 'Angry'),
+      ...createTextColors(red, 'angry'),
     }
   }
 })

@@ -2,8 +2,8 @@ import { Scale, Suffixed } from '../../types';
 import { parseScale, suffixed } from '../../utilities';
 
 export type BorderColorToken =
-  | 'nonInteractiveComponentBorder'
-  | 'interactiveComponentBorder';
+  | 'componentNonInteractiveBorder'
+  | 'componentInteractiveBorder';
 
 export type BorderColors<Suffix extends string> = Record<
   Suffixed<Suffix, BorderColorToken>,
@@ -22,11 +22,11 @@ export const createBorderColors = <
   const { p } = parseScale<Prefix>(scale);
 
   return {
-    [`nonInteractiveComponentBorder${s}`]: scale[`${p}6`],
-    [`nonInteractiveComponentBorderHover${s}`]: scale[`${p}7`],
-    [`nonInteractiveComponentBorderActive${s}`]: scale[`${p}8`],
-    [`interactiveComponentBorder${s}`]: scale[`${p}6`],
-    [`interactiveComponentBorderHover${s}`]: scale[`${p}7`],
-    [`interactiveComponentBorderActive${s}`]: scale[`${p}8`],
+    [`componentNonInteractiveBorder${s}`]: scale[`${p}6`],
+    [`componentNonInteractiveBorderHover${s}`]: scale[`${p}7`],
+    [`componentNonInteractiveBorderActive${s}`]: scale[`${p}8`],
+    [`componentInteractiveBorder${s}`]: scale[`${p}6`],
+    [`componentInteractiveBorderHover${s}`]: scale[`${p}7`],
+    [`componentInteractiveBorderActive${s}`]: scale[`${p}8`],
   } as unknown as BorderColors<Suffix>;
 };

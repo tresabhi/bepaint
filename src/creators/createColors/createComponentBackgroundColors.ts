@@ -3,7 +3,7 @@ import { parseScale, suffixed } from '../../utilities';
 
 export type ComponentBackgroundColorToken =
   | 'componentBackground'
-  | 'callToActionComponentBackground';
+  | 'componentCallToActionBackground';
 
 export type ComponentBackgroundColors<Suffix extends string> = Record<
   Suffixed<Suffix, ComponentBackgroundColorToken>,
@@ -25,8 +25,8 @@ export const createComponentBackgroundColors = <
     [`componentBackground${s}`]: scale[`${p}3`],
     [`componentBackgroundHover${s}`]: scale[`${p}4`],
     [`componentBackgroundActive${s}`]: scale[`${p}5`],
-    [`callToActionComponentBackground${s}`]: scale[`${p}4`],
-    [`callToActionComponentBackgroundHover${s}`]: scale[`${p}5`],
-    [`callToActionComponentBackgroundActive${s}`]: scale[`${p}6`],
+    [`componentCallToActionBackground${s}`]: scale[`${p}4`],
+    [`componentCallToActionBackgroundHover${s}`]: scale[`${p}5`],
+    [`componentCallToActionBackgroundActive${s}`]: scale[`${p}6`],
   } as unknown as ComponentBackgroundColors<Suffix>;
 };

@@ -1,4 +1,4 @@
-export type CSSConvertibleUnit =
+export type CSSRelativeUnit =
   | 'px'
   | 'em'
   | 'rem'
@@ -8,7 +8,7 @@ export type CSSConvertibleUnit =
   | 'pt'
   | 'pc';
 
-export const CSSUnitRatio = new Map<CSSConvertibleUnit, number>([
+export const CSSUnitRatio = new Map<CSSRelativeUnit, number>([
   ['px', 1], // px to px
   ['em', 1 / 16], // px to em
   ['rem', 1 / 16], // px to rem
@@ -19,7 +19,7 @@ export const CSSUnitRatio = new Map<CSSConvertibleUnit, number>([
   ['pc', ((1 / 96) * 72) / 12], // px to in to pt to pc
 ]);
 
-export const toUnit = <Unit extends CSSConvertibleUnit>(
+export const toUnit = <Unit extends CSSRelativeUnit>(
   value: number,
   unit: Unit,
 ) => {

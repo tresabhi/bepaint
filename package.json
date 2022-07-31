@@ -1,12 +1,11 @@
 {
-  "name": "stitches-dye",
+  "name": "theme-park",
   "description": "🧵 Quickly generate elegant Stitches themes with minimum code",
-  "version": "1.0.0-alpha.1",
+  "version": "1.0.0-beta.1",
   "private": false,
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "keywords": [
-    "stitches",
     "css-in-js",
     "javascript",
     "typescript",
@@ -15,9 +14,11 @@
     "typed",
     "stylesheet",
     "styles",
-    "css"
+    "css",
+    "theme",
+    "tokens"
   ],
-  "repository": "https://github.com/tresabhi/stitches-dye.git",
+  "repository": "https://github.com/tresabhi/theme-park.git",
   "author": "TrèsAbhi",
   "license": "MIT",
   "files": [

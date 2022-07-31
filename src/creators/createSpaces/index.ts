@@ -1,5 +1,5 @@
 import { Suffixed } from '../../types';
-import { CSSConvertibleUnit, toUnit } from '../../utilities';
+import { CSSRelativeUnit, toUnit } from '../../utilities';
 
 export type SizeVariants = '' | 'Major' | 'Minor';
 
@@ -16,7 +16,7 @@ export type Spaces<Suffix extends string> = Record<
 >;
 
 export const createSpaces = <Suffix extends string = ''>(
-  unit: CSSConvertibleUnit = 'rem',
+  unit: CSSRelativeUnit = 'rem',
   suffix?: Suffix,
 ) => {
   const to = (value: number) => toUnit(value, unit);
