@@ -1,13 +1,24 @@
-import { CSSRelativeUnit } from '../../utilities';
+import { creatorDefaultOptions, CreatorOptions } from '..';
+import { CSSUnit } from '../../utilities';
 import { createIconSizes } from './createIconSizes';
 
 export * from './createIconSizes';
 
+export interface CreateSizesOptions<Suffix extends string>
+  extends CreatorOptions<Suffix> {
+  unit: CSSUnit;
+}
+
+export const createSizesDefaultOptions: CreateSizesOptions<string> = {
+  ...creatorDefaultOptions,
+
+  unit: 'rem',
+};
+
 export const createSizes = <Suffix extends string = ''>(
-  unit: CSSRelativeUnit = 'rem',
-  suffix?: Suffix,
+  options?: Partial<CreateSizesOptions<Suffix>>,
 ) => {
   return {
-    ...createIconSizes(unit, suffix),
+    ...createIconSizes(options),
   };
 };

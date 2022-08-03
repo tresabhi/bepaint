@@ -1,4 +1,6 @@
-import { Scale, Suffixed } from '../../types';
+import { merge } from 'lodash';
+import { createColorsDefaultOptions, CreateColorsOptions } from '.';
+import { Suffixed } from '../../types';
 import { parseScale, suffixed } from '../../utilities';
 
 export type BackgroundColorToken = `${
@@ -14,29 +16,25 @@ export type BackgroundColors<Suffix extends string> = Record<
   string
 >;
 
-export const createBackgroundColors = <
-  Prefix extends string,
-  NamedScale extends Scale<Prefix>,
-  Suffix extends string = '',
->(
-  scale: NamedScale,
-  suffix?: Suffix,
+export const createBackgroundColors = <Suffix extends string = ''>(
+  options?: Partial<CreateColorsOptions<Suffix>>,
 ) => {
-  const s = suffixed(suffix);
-  const { p } = parseScale<Prefix>(scale);
+  const m = merge(createColorsDefaultOptions, options);
+  const s = suffixed(m.suffix);
+  const { p } = parseScale(m.scale);
 
   return {
-    [`appBackground${s}1`]: scale[`${p}1`],
-    [`appBackground${s}2`]: scale[`${p}2`],
-    [`tableStripeBackground${s}1`]: scale[`${p}1`],
-    [`tableStripeBackground${s}2`]: scale[`${p}2`],
-    [`codeBlockBackground${s}1`]: scale[`${p}1`],
-    [`codeBlockBackground${s}2`]: scale[`${p}2`],
-    [`cardBackground${s}1`]: scale[`${p}1`],
-    [`cardBackground${s}2`]: scale[`${p}2`],
-    [`sidebarBackground${s}1`]: scale[`${p}1`],
-    [`sidebarBackground${s}2`]: scale[`${p}2`],
-    [`canvasBackground${s}1`]: scale[`${p}1`],
-    [`canvasBackground${s}2`]: scale[`${p}2`],
-  } as unknown as BackgroundColors<Suffix>;
+    [`appBackground${s}1`]: m.scale[`${p}1`],
+    [`appBackground${s}2`]: m.scale[`${p}2`],
+    [`tableStripeBackground${s}1`]: m.scale[`${p}1`],
+    [`tableStripeBackground${s}2`]: m.scale[`${p}2`],
+    [`codeBlockBackground${s}1`]: m.scale[`${p}1`],
+    [`codeBlockBackground${s}2`]: m.scale[`${p}2`],
+    [`cardBackground${s}1`]: m.scale[`${p}1`],
+    [`cardBackground${s}2`]: m.scale[`${p}2`],
+    [`sidebarBackground${s}1`]: m.scale[`${p}1`],
+    [`sidebarBackground${s}2`]: m.scale[`${p}2`],
+    [`canvasBackground${s}1`]: m.scale[`${p}1`],
+    [`canvasBackground${s}2`]: m.scale[`${p}2`],
+  } as BackgroundColors<Suffix>;
 };

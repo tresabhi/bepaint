@@ -1,14 +1,14 @@
 import { noDocs } from '../utilities/noDocs';
-import FontSizes from './FontSizes.svelte';
+import Spaces from './Spaces.svelte';
 
 export default {
+  title: 'Spaces/Default',
+  component: Spaces,
   ...noDocs,
-  title: 'FontSizes/Default',
-  component: FontSizes,
 };
 
 const Template = (args) => ({
-  Component: FontSizes,
+  Component: Spaces,
   props: args,
 });
 

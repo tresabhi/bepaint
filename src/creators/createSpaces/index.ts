@@ -1,44 +1,35 @@
-import { Suffixed } from '../../types';
-import { CSSRelativeUnit, toUnit } from '../../utilities';
+import { creatorDefaultOptions, CreatorOptions } from '..';
+import { CSSUnit } from '../../utilities';
+import { createGapSpaces } from './createGapSpaces';
+import { createMarginSpaces } from './createMarginSpaces';
+import { createPaddingSpaces } from './createPaddingSpaces';
 
-export type SizeVariants = '' | 'Major' | 'Minor';
+export * from './createGapSpaces';
+export * from './createMarginSpaces';
+export * from './createPaddingSpaces';
 
-export type SpaceToken =
-  | `gapRelated${SizeVariants}`
-  | `gapUnrelated${SizeVariants}`
-  | `marginRelated${SizeVariants}`
-  | `marginUnrelated${SizeVariants}`
-  | `padding${SizeVariants}`;
+export type SizeVariant = '' | 'Major' | 'Minor';
+export type SpaceVariant = 'Related' | 'Unrelated';
 
-export type Spaces<Suffix extends string> = Record<
-  Suffixed<Suffix, SpaceToken>,
-  string
->;
+export interface CreateSpacesOptions<Suffix extends string>
+  extends CreatorOptions<Suffix> {
+  unit: CSSUnit;
+  scale: number;
+}
+
+export const createSpacesDefaultOptions: CreateSpacesOptions<string> = {
+  ...creatorDefaultOptions,
+
+  unit: 'rem',
+  scale: 1,
+};
 
 export const createSpaces = <Suffix extends string = ''>(
-  unit: CSSRelativeUnit = 'rem',
-  suffix?: Suffix,
+  options?: CreateSpacesOptions<Suffix>,
 ) => {
-  const to = (value: number) => toUnit(value, unit);
-  suffix = suffix ?? ('' as Suffix);
-
   return {
-    [`gapRelated${suffix}`]: to(4),
-    [`gapRelatedMajor${suffix}`]: to(8),
-    [`gapRelatedMinor${suffix}`]: to(2),
-    [`gapUnrelated${suffix}`]: to(8),
-    [`gapUnrelatedMajor${suffix}`]: to(16),
-    [`gapUnrelatedMinor${suffix}`]: to(4),
-
-    [`marginRelated${suffix}`]: to(2),
-    [`marginRelatedMajor${suffix}`]: to(4),
-    [`marginRelatedMinor${suffix}`]: to(1),
-    [`marginUnrelated${suffix}`]: to(4),
-    [`marginUnrelatedMajor${suffix}`]: to(8),
-    [`marginUnrelatedMinor${suffix}`]: to(2),
-
-    [`padding${suffix}`]: to(8),
-    [`paddingMajor${suffix}`]: to(16),
-    [`paddingMinor${suffix}`]: to(4),
-  } as Spaces<Suffix>;
+    ...createGapSpaces(options),
+    ...createMarginSpaces(options),
+    ...createPaddingSpaces(options),
+  };
 };

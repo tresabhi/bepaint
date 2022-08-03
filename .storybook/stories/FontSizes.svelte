@@ -1,14 +1,19 @@
-<script>
+<script lang="ts">
   import { css } from '@stitches/core';
-  import { createFontSizes } from '../../src';
+  import {
+    createFontSizes,
+    DocumentFontSizeToken,
+    HeadingFontSizeToken,
+  } from '../../src';
   import Break from '../lib/Break.svelte';
 
   $: fontSizes = createFontSizes();
 
-  const type = (token) =>
-    css({
+  const type = (token: DocumentFontSizeToken | HeadingFontSizeToken) => {
+    return css({
       fontSize: fontSizes[token],
-    });
+    })();
+  };
 </script>
 
 <p class={type('paragraph')}>Paragraph</p>
@@ -43,18 +48,16 @@ function ThemePark() {
 
 <span class={type('label')}>Label</span>
 <br />
-<button class={type('componentInteractive')}>I have a label!</button>
+<button class={type('paragraph')}>I have a label!</button>
 
 <Break />
 
-<button class={type('componentInteractive')}>Normal</button>
-<button class={type('componentCompact')}>Compact</button>
-<button class={type('componentCallToAction')}>Call to Action</button>
+<button class={type('compact')}>Compact</button>
+<button class={type('callToAction')}>Call to Action</button>
 <br />
 <br />
-<input class={type('componentInteractive')} placeholder="Normal" />
-<input class={type('componentCompact')} placeholder="Compact" />
-<input class={type('componentCallToAction')} placeholder="Call to Action" />
+<input class={type('compact')} placeholder="Compact" />
+<input class={type('callToAction')} placeholder="Call to Action" />
 
 <Break />
 

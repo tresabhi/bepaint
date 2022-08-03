@@ -1,11 +1,11 @@
-<script>
+<script lang="ts">
   import { css, globalCss } from '@stitches/core';
   import { createGoogleFonts } from '../../src';
 
-  export let fontFamily;
+  export let fontFamily: string;
 
   globalCss({
-    '@import': createGoogleFonts(fontFamily),
+    '@import': createGoogleFonts({ family: fontFamily }),
   })();
 
   const heading = css({ fontFamily })();

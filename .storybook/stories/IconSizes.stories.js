@@ -1,3 +1,4 @@
+import { noDocs } from '../utilities/noDocs';
 import IconSizes from './IconSizes.svelte';
 
 export default {
@@ -9,6 +10,7 @@ export default {
       options: ['px', 'em', 'rem', 'in', 'cm', 'mm', 'pt', 'pc'],
     },
   },
+  ...noDocs,
 };
 
 const Template = (args) => ({

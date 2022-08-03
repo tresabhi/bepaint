@@ -1,4 +1,6 @@
-import { Scale, Suffixed } from '../../types';
+import { merge } from 'lodash';
+import { createColorsDefaultOptions, CreateColorsOptions } from '.';
+import { Suffixed } from '../../types';
 import { parseScale, suffixed } from '../../utilities';
 
 export type TextColorToken = 'textLowContrast' | 'textHighContrast';
@@ -8,19 +10,15 @@ export type TextColors<Suffix extends string> = Record<
   string
 >;
 
-export const createTextColors = <
-  Prefix extends string,
-  NamedScale extends Scale<Prefix>,
-  Suffix extends string = '',
->(
-  scale: NamedScale,
-  suffix?: Suffix,
+export const createTextColors = <Suffix extends string = ''>(
+  options?: Partial<CreateColorsOptions<Suffix>>,
 ) => {
-  const s = suffixed(suffix);
-  const { p } = parseScale<Prefix>(scale);
+  const m = merge(createColorsDefaultOptions, options);
+  const s = suffixed(m.suffix);
+  const { p } = parseScale(m.scale);
 
   return {
-    [`textLowContrast${s}`]: scale[`${p}11`],
-    [`textHighContrast${s}`]: scale[`${p}12`],
-  } as unknown as TextColors<Suffix>;
+    [`textLowContrast${s}`]: m.scale[`${p}11`],
+    [`textHighContrast${s}`]: m.scale[`${p}12`],
+  } as TextColors<Suffix>;
 };

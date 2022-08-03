@@ -1,8 +1,11 @@
-import { Numbered, Scale } from '../../types';
+import { ColorScale, Numbered } from '../../types';
 
 export const prefixRegex = /^[a-zA-Z]+/;
 
-export const parseScale = <Prefix extends string, NamedScale = Scale<Prefix>>(
+export const parseScale = <
+  Prefix extends string,
+  NamedScale = ColorScale<Prefix>,
+>(
   scale: NamedScale,
 ) => {
   const steps = Object.keys(scale) as Numbered<Prefix>[];

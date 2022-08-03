@@ -1,14 +1,14 @@
 import { noDocs } from '../utilities/noDocs';
-import FontSizes from './FontSizes.svelte';
+import FontWeights from './FontWeights.svelte';
 
 export default {
   ...noDocs,
-  title: 'FontSizes/Default',
-  component: FontSizes,
+  title: 'FontWeights/Default',
+  component: FontWeights,
 };
 
 const Template = (args) => ({
-  Component: FontSizes,
+  Component: FontWeights,
   props: args,
 });
 

@@ -1,4 +1,6 @@
-import { Scale, Suffixed } from '../../types';
+import { merge } from 'lodash';
+import { createColorsDefaultOptions, CreateColorsOptions } from '.';
+import { Suffixed } from '../../types';
 import { parseScale, suffixed } from '../../utilities';
 
 export type BorderColorToken =
@@ -10,23 +12,19 @@ export type BorderColors<Suffix extends string> = Record<
   string
 >;
 
-export const createBorderColors = <
-  Prefix extends string,
-  NamedScale extends Scale<Prefix>,
-  Suffix extends string = '',
->(
-  scale: NamedScale,
-  suffix?: Suffix,
+export const createBorderColors = <Suffix extends string = ''>(
+  options?: Partial<CreateColorsOptions<Suffix>>,
 ) => {
-  const s = suffixed(suffix);
-  const { p } = parseScale<Prefix>(scale);
+  const m = merge(createColorsDefaultOptions, options);
+  const s = suffixed(m.suffix);
+  const { p } = parseScale(m.scale);
 
   return {
-    [`componentNonInteractiveBorder${s}`]: scale[`${p}6`],
-    [`componentNonInteractiveBorderHover${s}`]: scale[`${p}7`],
-    [`componentNonInteractiveBorderActive${s}`]: scale[`${p}8`],
-    [`componentInteractiveBorder${s}`]: scale[`${p}6`],
-    [`componentInteractiveBorderHover${s}`]: scale[`${p}7`],
-    [`componentInteractiveBorderActive${s}`]: scale[`${p}8`],
-  } as unknown as BorderColors<Suffix>;
+    [`componentNonInteractiveBorder${s}`]: m.scale[`${p}6`],
+    [`componentNonInteractiveBorderHover${s}`]: m.scale[`${p}7`],
+    [`componentNonInteractiveBorderActive${s}`]: m.scale[`${p}8`],
+    [`componentInteractiveBorder${s}`]: m.scale[`${p}6`],
+    [`componentInteractiveBorderHover${s}`]: m.scale[`${p}7`],
+    [`componentInteractiveBorderActive${s}`]: m.scale[`${p}8`],
+  } as BorderColors<Suffix>;
 };

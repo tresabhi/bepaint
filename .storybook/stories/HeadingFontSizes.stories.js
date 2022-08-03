@@ -1,20 +1,10 @@
+import { noDocs } from '../utilities/noDocs';
 import HeadingFontSizes from './HeadingFontSizes.svelte';
 
 export default {
+  ...noDocs,
   title: 'FontSizes/Heading',
   component: HeadingFontSizes,
-  argTypes: {
-    coefficient: {
-      name: 'Coefficient',
-      description: 'How fast heading sizes decrease',
-      control: 'number',
-    },
-    verticalIntercept: {
-      name: 'Vertical Intercept',
-      description: 'How big the initial heading size is',
-      control: 'number',
-    },
-  },
 };
 
 const Template = (args) => ({

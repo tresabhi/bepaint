@@ -1,6 +1,8 @@
+import { noDocs } from '../utilities/noDocs';
 import GoogleFonts from './GoogleFonts.svelte';
 
 export default {
+  ...noDocs,
   title: 'Fonts/Google',
   component: GoogleFonts,
   argTypes: {

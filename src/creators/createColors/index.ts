@@ -1,4 +1,5 @@
-import { Scale } from '../../types';
+import { creatorDefaultOptions, CreatorOptions } from '..';
+import { ColorScale } from '../../types';
 import { createBackgroundColors } from './createBackgroundColors';
 import { createBorderColors } from './createBorderColors';
 import { createComponentBackgroundColors } from './createComponentBackgroundColors';
@@ -9,18 +10,37 @@ export * from './createBorderColors';
 export * from './createComponentBackgroundColors';
 export * from './createTextColors';
 
-export const createColors = <
-  Prefix extends string,
-  NamedScale extends Scale<Prefix>,
-  Suffix extends string = '',
->(
-  scale: NamedScale,
-  suffix?: Suffix,
+export interface CreateColorsOptions<Suffix extends string>
+  extends CreatorOptions<Suffix> {
+  scale: ColorScale;
+}
+
+export const createColorsDefaultOptions: CreateColorsOptions<string> = {
+  ...creatorDefaultOptions,
+
+  scale: {
+    1: '',
+    2: '',
+    3: '',
+    4: '',
+    5: '',
+    6: '',
+    7: '',
+    8: '',
+    9: '',
+    10: '',
+    11: '',
+    12: '',
+  },
+};
+
+export const createColors = <Suffix extends string = ''>(
+  options?: Partial<CreateColorsOptions<Suffix>>,
 ) => {
   return {
-    ...createBackgroundColors(scale, suffix),
-    ...createComponentBackgroundColors(scale, suffix),
-    ...createBorderColors(scale, suffix),
-    ...createTextColors(scale, suffix),
+    ...createBackgroundColors(options),
+    ...createComponentBackgroundColors(options),
+    ...createBorderColors(options),
+    ...createTextColors(options),
   };
 };

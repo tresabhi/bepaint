@@ -1,12 +1,16 @@
 {
   "cSpell.words": [
     "Abhi",
+    "bolditalic",
+    "Desmos",
     "Indeces",
     "jestconfig",
     "Necolas",
     "preversion",
     "Roboto",
     "stylesheet",
-    "tresnpm"
-  ]
+    "tresnpm",
+    "wght"
+  ],
+  "typescript.tsdk": "node_modules/typescript/lib"
 }

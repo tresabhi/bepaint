@@ -1,4 +1,6 @@
-import { Scale, Suffixed } from '../../types';
+import { merge } from 'lodash';
+import { createColorsDefaultOptions, CreateColorsOptions } from '.';
+import { Suffixed } from '../../types';
 import { parseScale, suffixed } from '../../utilities';
 
 export type ComponentBackgroundColorToken =
@@ -10,23 +12,19 @@ export type ComponentBackgroundColors<Suffix extends string> = Record<
   string
 >;
 
-export const createComponentBackgroundColors = <
-  Prefix extends string,
-  NamedScale extends Scale<Prefix>,
-  Suffix extends string = '',
->(
-  scale: NamedScale,
-  suffix?: Suffix,
+export const createComponentBackgroundColors = <Suffix extends string = ''>(
+  options?: Partial<CreateColorsOptions<Suffix>>,
 ) => {
-  const s = suffixed(suffix);
-  const { p } = parseScale<Prefix>(scale);
+  const m = merge(createColorsDefaultOptions, options);
+  const s = suffixed(m.suffix);
+  const { p } = parseScale(m.scale);
 
   return {
-    [`componentBackground${s}`]: scale[`${p}3`],
-    [`componentBackgroundHover${s}`]: scale[`${p}4`],
-    [`componentBackgroundActive${s}`]: scale[`${p}5`],
-    [`componentCallToActionBackground${s}`]: scale[`${p}4`],
-    [`componentCallToActionBackgroundHover${s}`]: scale[`${p}5`],
-    [`componentCallToActionBackgroundActive${s}`]: scale[`${p}6`],
-  } as unknown as ComponentBackgroundColors<Suffix>;
+    [`componentBackground${s}`]: m.scale[`${p}3`],
+    [`componentBackgroundHover${s}`]: m.scale[`${p}4`],
+    [`componentBackgroundActive${s}`]: m.scale[`${p}5`],
+    [`componentCallToActionBackground${s}`]: m.scale[`${p}4`],
+    [`componentCallToActionBackgroundHover${s}`]: m.scale[`${p}5`],
+    [`componentCallToActionBackgroundActive${s}`]: m.scale[`${p}6`],
+  } as ComponentBackgroundColors<Suffix>;
 };
