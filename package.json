@@ -1,5 +1,5 @@
 {
-  "name": "theme-park",
+  "name": "bepaint",
   "description": "🧵 Quickly generate elegant Stitches themes with minimum code",
   "version": "1.0.0-beta.1",
   "private": false,
@@ -18,7 +18,7 @@
     "theme",
     "tokens"
   ],
-  "repository": "https://github.com/tresabhi/theme-park.git",
+  "repository": "https://github.com/tresabhi/bepaint.git",
   "author": "TrèsAbhi",
   "license": "MIT",
   "files": [

@@ -1,5 +1,5 @@
-title: Theme Park
-description: 🧵 Documentation for Theme Park, quickly generate elegant themes with minimal code
+title: Bepaint
+description: 🧵 Documentation for Bepaint, quickly generate elegant themes with minimal code
 twitter_username: TresAbhi_
 github_username: TresAbhi
 
@@ -14,9 +14,9 @@ logo: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/mic
 color_scheme: dark
 aux_links:
   'GitHub':
-    - 'https://github.com/tresabhi/theme-park'
+    - 'https://github.com/tresabhi/bepaint'
 aux_links_new_tab: true
 
 gh_edit_link: true
 gh_edit_link_text: 'Edit page on GitHub'
-gh_edit_repository: 'https://github.com/tresabhi/theme-park'
+gh_edit_repository: 'https://github.com/tresabhi/bepaint'

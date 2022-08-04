@@ -1,8 +1,8 @@
-# 🎡 Theme Park
+# 🎡 Bepaint
 
 <!-- TODO: make the logo a combo of 🎡 and 🏞️ -->
 
-Quickly generate elegant themes with minimum code. We recommend using color scales by [Radix Colors](https://www.radix-ui.com/colors) since Theme Park follows the ["Understanding the Scales" guidelines](https://www.radix-ui.com/docs/colors/palette-composition/understanding-the-scale) from that very project.
+Quickly generate elegant themes with minimum code. We recommend using color scales by [Radix Colors](https://www.radix-ui.com/colors) since Bepaint follows the ["Understanding the Scales" guidelines](https://www.radix-ui.com/docs/colors/palette-composition/understanding-the-scale) from that very project.
 
 # Quick Start
 
@@ -11,13 +11,13 @@ Quickly generate elegant themes with minimum code. We recommend using color scal
 ### NPM
 
 ```
-npm install --save theme-park
+npm install --save bepaint
 ```
 
 ### Yarn
 
 ```
-yarn add theme-park
+yarn add bepaint
 ```
 
 ## Usage
