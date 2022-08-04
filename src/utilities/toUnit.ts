@@ -1,6 +1,14 @@
-export type CSSUnit = 'px' | 'em' | 'rem' | 'in' | 'cm' | 'mm' | 'pt' | 'pc';
+export type CSSLengthUnit =
+  | 'px'
+  | 'em'
+  | 'rem'
+  | 'in'
+  | 'cm'
+  | 'mm'
+  | 'pt'
+  | 'pc';
 
-export const CSSUnitRatios = new Map<CSSUnit, number>([
+export const CSSUnitRatios = new Map<CSSLengthUnit, number>([
   ['px', 1], // px to px
   ['em', 1 / 16], // px to em
   ['rem', 1 / 16], // px to rem
@@ -11,7 +19,10 @@ export const CSSUnitRatios = new Map<CSSUnit, number>([
   ['pc', ((1 / 96) * 72) / 12], // px to in to pt to pc
 ]);
 
-export const toUnit = <Unit extends CSSUnit>(value: number, unit: Unit) => {
+export const toUnit = <Unit extends CSSLengthUnit>(
+  value: number,
+  unit: Unit,
+) => {
   return value === 0
     ? '0'
     : (`${

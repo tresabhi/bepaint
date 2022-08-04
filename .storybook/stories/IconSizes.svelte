@@ -1,10 +1,10 @@
 <script lang="ts">
   import { css } from '@stitches/core';
-  import { createIconSizes, CSSUnit, IconSizeToken } from '../../src';
+  import { createIconSizes, CSSLengthUnit, IconSizeToken } from '../../src';
   import gearIcon from '../assets/icons/gear.svg';
   import speakerLoudIcon from '../assets/icons/speaker-loud.svg';
 
-  export let unit: CSSUnit = 'rem';
+  export let unit: CSSLengthUnit = 'rem';
   $: iconSizes = createIconSizes({ unit });
 
   const type = (token: IconSizeToken) => {

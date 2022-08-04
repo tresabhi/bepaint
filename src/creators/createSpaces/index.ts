@@ -1,5 +1,5 @@
 import { creatorDefaultOptions, CreatorOptions } from '..';
-import { CSSUnit } from '../../utilities';
+import { CSSLengthUnit } from '../../utilities';
 import { createGapSpaces } from './createGapSpaces';
 import { createMarginSpaces } from './createMarginSpaces';
 import { createPaddingSpaces } from './createPaddingSpaces';
@@ -13,7 +13,7 @@ export type SpaceVariant = 'Related' | 'Unrelated';
 
 export interface CreateSpacesOptions<Suffix extends string>
   extends CreatorOptions<Suffix> {
-  unit: CSSUnit;
+  unit: CSSLengthUnit;
   scale: number;
 }
 

@@ -1,12 +1,12 @@
 import { creatorDefaultOptions, CreatorOptions } from '..';
-import { CSSUnit } from '../../utilities';
+import { CSSLengthUnit } from '../../utilities';
 import { createIconSizes } from './createIconSizes';
 
 export * from './createIconSizes';
 
 export interface CreateSizesOptions<Suffix extends string>
   extends CreatorOptions<Suffix> {
-  unit: CSSUnit;
+  unit: CSSLengthUnit;
 }
 
 export const createSizesDefaultOptions: CreateSizesOptions<string> = {

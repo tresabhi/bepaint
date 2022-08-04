@@ -18,14 +18,13 @@
       family: FONT_FAMILY,
       weight: { min: 100, max: 1000 },
     }),
-
-    '*': {
-      fontFamily: FONT_FAMILY,
-    },
   })();
 
   const type = (token: FontWeightToken) => {
-    return css({ fontWeight: fontWeights[token] })();
+    return css({
+      fontWeight: fontWeights[token],
+      fontFamily: FONT_FAMILY,
+    })();
   };
   const titleStyles = css({
     fontSize: headingFontSizes.title,
