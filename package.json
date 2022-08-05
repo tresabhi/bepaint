@@ -23,7 +23,7 @@
   "author": "TrèsAbhi",
   "license": "MIT",
   "files": [
-    "/dist/**/*"
+    "dist"
   ],
   "scripts": {
     "format": "prettier --write \"**/*.@(json|js|md|ts|yml|svelte)\"",
