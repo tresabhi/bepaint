@@ -3,8 +3,8 @@
   "description": "🧵 Quickly generate elegant Stitches themes with minimum code",
   "version": "1.0.0",
   "private": false,
-  "main": "index.js",
-  "types": "index.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "type": "module",
   "keywords": [
     "css-in-js",
@@ -23,7 +23,7 @@
   "author": "TrèsAbhi",
   "license": "MIT",
   "files": [
-    "dist/**/*"
+    "/dist/**/*"
   ],
   "scripts": {
     "format": "prettier --write \"**/*.@(json|js|md|ts|yml|svelte)\"",
