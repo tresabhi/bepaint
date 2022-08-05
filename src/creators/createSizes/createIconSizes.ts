@@ -1,4 +1,4 @@
-import { merge } from 'lodash';
+import merge from 'lodash.merge';
 import { createSizesDefaultOptions, CreateSizesOptions } from '.';
 import { Suffixed } from '../../types';
 import { suffixed, toUnit } from '../../utilities';

@@ -1,4 +1,4 @@
-import { merge } from 'lodash';
+import merge from 'lodash.merge';
 import { createColorsDefaultOptions, CreateColorsOptions } from '.';
 import { Suffixed } from '../../types';
 import { parseScale, suffixed } from '../../utilities';

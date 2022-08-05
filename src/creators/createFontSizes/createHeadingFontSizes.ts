@@ -1,4 +1,4 @@
-import { merge } from 'lodash';
+import merge from 'lodash.merge';
 import { createFontSizesDefaultOptions, CreateFontSizesOptions } from '.';
 import { Range, Suffixed } from '../../types';
 import { suffixed, toRem } from '../../utilities';

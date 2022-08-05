@@ -1,4 +1,4 @@
-import { merge } from 'lodash';
+import merge from 'lodash.merge';
 import { createFontsDefaultOptions, CreateFontsOptions } from '.';
 
 export const GOOGLE_FONTS_URL = 'https://fonts.googleapis.com';

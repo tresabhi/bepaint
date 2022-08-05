@@ -1,4 +1,4 @@
-import { merge } from 'lodash';
+import merge from 'lodash.merge';
 import { creatorDefaultOptions, CreatorOptions } from '..';
 import { Suffixed } from '../../types';
 import { CSSLengthUnit, suffixed, toUnit } from '../../utilities';

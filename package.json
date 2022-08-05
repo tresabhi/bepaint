@@ -5,6 +5,7 @@
   "private": false,
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "type": "module",
   "keywords": [
     "css-in-js",
     "javascript",
@@ -28,8 +29,8 @@
     "format": "prettier --write \"**/*.@(json|js|md|ts|yml|svelte)\"",
     "test": "jest --passWithNoTests --config jestconfig.json",
     "test:watch": "yarn run test --watch",
-    "lint": "tslint -p tsconfig-build.json",
-    "build": "tsc -p tsconfig-build.json",
+    "lint": "tslint -p tsconfig.json",
+    "build": "node scripts/build.js",
     "build:storybook": "build-storybook",
     "host:storybook": "serve storybook-static",
     "host:storybook:new": "build-storybook && serve storybook-static",
@@ -37,7 +38,7 @@
     "storybook": "start-storybook -p 9001"
   },
   "dependencies": {
-    "lodash": "^4.17.21"
+    "lodash.merge": "^4.6.2"
   },
   "devDependencies": {
     "@babel/core": "^7.18.9",
@@ -53,6 +54,7 @@
     "@storybook/testing-library": "^0.0.13",
     "@types/jest": "^28.1.6",
     "@types/lodash": "^4.14.182",
+    "@types/lodash.merge": "^4.6.7",
     "babel-loader": "^8.2.5",
     "jest": "^28.1.3",
     "path": "^0.12.7",
