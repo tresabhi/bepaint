@@ -1,5 +1,6 @@
 import { execSync } from 'child_process';
 import { existsSync, readFileSync, rmSync, writeFileSync } from 'fs';
+import { argv } from 'process';
 
 const BUILD_DIR = 'dist';
 
@@ -8,15 +9,25 @@ if (existsSync(BUILD_DIR)) {
   rmSync(BUILD_DIR, { recursive: true, force: true });
 }
 
-console.log('transpiling to JavaScript');
-execSync('npx tsc -p tsconfig.json');
+if (argv.includes('--no-transpile')) {
+  console.warn('skipped transpiling to JavaScript');
+} else {
+  console.log('transpiling to JavaScript');
+  execSync('npx tsc -p tsconfig.json');
+}
 
-console.log('removing devDependencies');
-const packageRaw = readFileSync('package.json');
-const packageJSON = JSON.parse(packageRaw);
+if (argv.includes('--publish')) {
+  console.warn('publish mode enabled; changes will be made to the source code');
 
-delete packageJSON.devDependencies;
+  console.log('removing devDependencies');
+  const packageRaw = readFileSync('package.json');
+  const packageJSON = JSON.parse(packageRaw);
 
-const packageString = JSON.stringify(packageJSON);
+  delete packageJSON.devDependencies;
 
-writeFileSync('package.json', packageString);
+  const packageString = JSON.stringify(packageJSON);
+
+  writeFileSync('package.json', packageString);
+} else {
+  console.log('publish mode disabled');
+}

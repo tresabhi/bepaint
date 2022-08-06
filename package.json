@@ -31,6 +31,7 @@
     "test:watch": "yarn run test --watch",
     "lint": "tslint -p tsconfig.json",
     "build": "node scripts/build.js",
+    "build:publish": "node scripts/build.js --publish",
     "build:storybook": "build-storybook",
     "host:storybook": "serve storybook-static",
     "host:storybook:new": "build-storybook && serve storybook-static",
