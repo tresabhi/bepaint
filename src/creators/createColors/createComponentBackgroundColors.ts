@@ -1,11 +1,11 @@
 import merge from 'lodash.merge';
 import { createColorsDefaultOptions, CreateColorsOptions } from '.';
-import { Suffixed } from '../../types';
+import { ComponentStates, Suffixed } from '../../types';
 import { parseScale, suffixed } from '../../utilities';
 
-export type ComponentBackgroundColorToken =
+export type ComponentBackgroundColorToken = `${
   | 'componentBackground'
-  | 'componentCallToActionBackground';
+  | 'componentCallToActionBackground'}${ComponentStates}`;
 
 export type ComponentBackgroundColors<Suffix extends string> = Record<
   Suffixed<Suffix, ComponentBackgroundColorToken>,

@@ -1,11 +1,11 @@
 import merge from 'lodash.merge';
 import { createColorsDefaultOptions, CreateColorsOptions } from '.';
-import { Suffixed } from '../../types';
+import { ComponentStates, Suffixed } from '../../types';
 import { parseScale, suffixed } from '../../utilities';
 
-export type BorderColorToken =
+export type BorderColorToken = `${
   | 'componentNonInteractiveBorder'
-  | 'componentInteractiveBorder';
+  | 'componentInteractiveBorder'}${ComponentStates}`;
 
 export type BorderColors<Suffix extends string> = Record<
   Suffixed<Suffix, BorderColorToken>,
