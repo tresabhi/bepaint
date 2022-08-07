@@ -9,3 +9,7 @@ dist
 _site
 .jekyll-cache
 storybook-static
+
+# Testing
+coverage
+.pre
