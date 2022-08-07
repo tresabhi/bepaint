@@ -8,7 +8,7 @@ export const parseScale = <
 >(
   scale: NamedScale,
 ) => {
-  const steps = Object.keys(scale as object) as Array<Numbered<Prefix>>;
+  const steps = Object.keys(scale) as Array<Numbered<Prefix>>;
   const prefix = (steps[0]?.match(prefixRegex)?.[0] ?? '') as Prefix;
   const size = steps.length;
 

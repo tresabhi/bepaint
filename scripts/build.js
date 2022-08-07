@@ -13,7 +13,10 @@ if (argv.includes('--no-transpile')) {
   console.warn('skipped transpiling to JavaScript');
 } else {
   console.log('transpiling to JavaScript');
-  execSync('npx tsc -p tsconfig.json');
+  execSync('tsc -p tsconfig.json');
+
+  console.log('adding alias paths');
+  execSync('npx tsc-alias -p tsconfig.json --resolve-full-paths --debug');
 }
 
 if (argv.includes('--publish')) {
