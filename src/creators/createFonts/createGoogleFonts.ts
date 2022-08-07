@@ -43,7 +43,7 @@ export const createGoogleFonts = (
   const parameters = new URLSearchParams([
     ...families,
     ['display', m.display],
-  ]).toString();
+  ] as [string, string][]).toString();
 
   return `${GOOGLE_FONTS_URL}/css2?${parameters}`;
 };
