@@ -1,3 +1,4 @@
+export * from './mergeOptions';
 export * from './parseScale';
 export * from './safeMinMaxInts';
 export * from './suffixed';

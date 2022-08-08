@@ -1,7 +1,6 @@
-import merge from 'lodash.merge';
 import { createSpacesDefaultOptions, SizeVariant, SpaceVariant } from '.';
 import { Suffixed } from '../../types';
-import { suffixed, toUnit } from '../../utilities';
+import { mergeOptions, suffixed, toUnit } from '../../utilities';
 import { CreateSizesOptions } from '../createSizes';
 
 export type GapSpaceToken = `gap${SpaceVariant}${SizeVariant}`;
@@ -14,7 +13,7 @@ export type GapSpaces<Suffix extends string> = Record<
 export const createGapSpaces = <Suffix extends string = ''>(
   options?: Partial<CreateSizesOptions<Suffix>>,
 ) => {
-  const m = merge(createSpacesDefaultOptions, options);
+  const m = mergeOptions(createSpacesDefaultOptions, options);
   const s = suffixed(m.suffix);
   const to = (value: number) => toUnit(value * m.scale, m.unit);
 

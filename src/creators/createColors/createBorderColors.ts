@@ -1,7 +1,6 @@
-import merge from 'lodash.merge';
 import { createColorsDefaultOptions, CreateColorsOptions } from '.';
 import { ComponentStates, Suffixed } from '../../types';
-import { parseScale, suffixed } from '../../utilities';
+import { mergeOptions, parseScale, suffixed } from '../../utilities';
 
 export type BorderColorToken = `${
   | 'componentNonInteractiveBorder'
@@ -15,7 +14,7 @@ export type BorderColors<Suffix extends string> = Record<
 export const createBorderColors = <Suffix extends string = ''>(
   options?: Partial<CreateColorsOptions<Suffix>>,
 ) => {
-  const m = merge(createColorsDefaultOptions, options);
+  const m = mergeOptions(createColorsDefaultOptions, options);
   const s = suffixed(m.suffix);
   const { p } = parseScale(m.scale);
 

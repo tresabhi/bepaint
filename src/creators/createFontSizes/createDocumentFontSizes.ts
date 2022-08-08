@@ -1,7 +1,6 @@
-import merge from 'lodash.merge';
 import { createFontSizesDefaultOptions, CreateFontSizesOptions } from '.';
 import { Suffixed } from '../../types';
-import { suffixed, toRem } from '../../utilities';
+import { mergeOptions, suffixed, toRem } from '../../utilities';
 
 export type DocumentFontSizeToken =
   | 'paragraph'
@@ -27,7 +26,7 @@ export type DocumentFontSizes<Suffix extends string> = Record<
 export const createDocumentFontSizes = <Suffix extends string = ''>(
   options?: Partial<CreateFontSizesOptions<Suffix>>,
 ) => {
-  const m = merge(createFontSizesDefaultOptions, options);
+  const m = mergeOptions(createFontSizesDefaultOptions, options);
   const s = suffixed(m.suffix);
 
   return {

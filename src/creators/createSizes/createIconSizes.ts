@@ -1,7 +1,6 @@
-import merge from 'lodash.merge';
 import { createSizesDefaultOptions, CreateSizesOptions } from '.';
 import { Suffixed } from '../../types';
-import { suffixed, toUnit } from '../../utilities';
+import { mergeOptions, suffixed, toUnit } from '../../utilities';
 import { SizeVariant } from '../createSpaces';
 
 export type IconSizeToken = `icon${SizeVariant}` | 'iconInText';
@@ -25,7 +24,7 @@ export const createIconSizesDefaultOptions: CreateIconSizesOptions<string> = {
 export const createIconSizes = <Suffix extends string = ''>(
   options?: Partial<CreateIconSizesOptions<Suffix>>,
 ) => {
-  const m = merge(createIconSizesDefaultOptions, options);
+  const m = mergeOptions(createIconSizesDefaultOptions, options);
   const to = (value: number) => toUnit(value, m.unit);
   const s = suffixed(m.suffix);
 

@@ -1,7 +1,6 @@
-import merge from 'lodash.merge';
 import { createColorsDefaultOptions, CreateColorsOptions } from '.';
 import { Suffixed } from '../../types';
-import { parseScale, suffixed } from '../../utilities';
+import { mergeOptions, parseScale, suffixed } from '../../utilities';
 
 export type TextColorToken = 'textLowContrast' | 'textHighContrast';
 
@@ -13,7 +12,7 @@ export type TextColors<Suffix extends string> = Record<
 export const createTextColors = <Suffix extends string = ''>(
   options?: Partial<CreateColorsOptions<Suffix>>,
 ) => {
-  const m = merge(createColorsDefaultOptions, options);
+  const m = mergeOptions(createColorsDefaultOptions, options);
   const s = suffixed(m.suffix);
   const { p } = parseScale(m.scale);
 

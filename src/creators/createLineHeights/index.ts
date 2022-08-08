@@ -1,7 +1,6 @@
-import merge from 'lodash.merge';
 import { creatorDefaultOptions, CreatorOptions } from '..';
 import { Suffixed } from '../../types';
-import { suffixed } from '../../utilities';
+import { mergeOptions, suffixed } from '../../utilities';
 
 export type LineHeightToken = 'single' | 'compact' | 'comfortable' | 'double';
 
@@ -17,7 +16,7 @@ export type LineHeights<Suffix extends string> = Record<
 export const createLineHeights = <Suffix extends string = ''>(
   options?: Partial<CreatorOptions<Suffix>>,
 ) => {
-  const m = merge(creatorDefaultOptions, options);
+  const m = mergeOptions(creatorDefaultOptions, options);
   const s = suffixed(m.suffix);
 
   return {

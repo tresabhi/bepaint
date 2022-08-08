@@ -1,7 +1,6 @@
-import merge from 'lodash.merge';
 import { creatorDefaultOptions, CreatorOptions } from '..';
 import { Suffixed } from '../../types';
-import { CSSLengthUnit, suffixed, toUnit } from '../../utilities';
+import { CSSLengthUnit, mergeOptions, suffixed, toUnit } from '../../utilities';
 
 export type BorderWidthToken = 'default' | 'subtle' | 'strong';
 
@@ -25,7 +24,7 @@ export const createBorderWidthsDefaultOptions: CreateBorderWidthsOptions<string>
 export const createBorderWidths = <Suffix extends string = ''>(
   options?: Partial<CreateBorderWidthsOptions<Suffix>>,
 ) => {
-  const m = merge(createBorderWidthsDefaultOptions, options);
+  const m = mergeOptions(createBorderWidthsDefaultOptions, options);
   const s = suffixed(m.suffix);
   const to = (value: number) => toUnit(value, m.unit);
 

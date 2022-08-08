@@ -1,12 +1,13 @@
 {
   "name": "bepaint",
-  "version": "0.1.5-beta",
+  "version": "0.1.6-beta",
   "description": "🧵 Quickly generate elegant themes with minimum code",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "type": "module",
   "scripts": {
-    "test": "jest --config jestconfig.json",
+    "test": "jest",
+    "test:watch": "jest --watch",
     "build": "node scripts/build.mjs",
     "watch:build": "onchange src/**/*.* -- yarn run build",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
@@ -38,7 +39,7 @@
   "devDependencies": {
     "@radix-ui/colors": "^0.1.8",
     "@types/jest": "^28.1.6",
-    "@types/lodash.merge": "^4.6.7",
+    "@types/lodash": "^4.14.182",
     "@typescript-eslint/eslint-plugin": "^5.32.0",
     "@typescript-eslint/parser": "^5.32.0",
     "esbuild": "^0.14.53",
@@ -55,6 +56,6 @@
     "dist/**/*"
   ],
   "dependencies": {
-    "lodash.merge": "^4.6.2"
+    "lodash": "^4.17.21"
   }
 }

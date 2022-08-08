@@ -1,7 +1,6 @@
-import merge from 'lodash.merge';
 import { creatorDefaultOptions, CreatorOptions } from '..';
 import { Suffixed } from '../../types';
-import { suffixed } from '../../utilities';
+import { mergeOptions, suffixed } from '../../utilities';
 
 export type FontWeightToken =
   | 'title'
@@ -34,7 +33,7 @@ export const createFontWeightsDefaultOptions: CreateFontWeightsOptions<string> =
 export const createFontWeights = <Suffix extends string = ''>(
   options?: Partial<CreateFontWeightsOptions<Suffix>>,
 ) => {
-  const m = merge(createFontWeightsDefaultOptions, options);
+  const m = mergeOptions(createFontWeightsDefaultOptions, options);
   const s = suffixed(m.suffix);
 
   return {

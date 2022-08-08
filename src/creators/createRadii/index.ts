@@ -1,7 +1,6 @@
-import merge from 'lodash.merge';
 import { creatorDefaultOptions, CreatorOptions } from '..';
 import { Suffixed } from '../../types';
-import { CSSLengthUnit, suffixed, toUnit } from '../../utilities';
+import { CSSLengthUnit, mergeOptions, suffixed, toUnit } from '../../utilities';
 
 export type RadiiToken = 'default' | 'sharp' | 'subtle' | 'blunt' | 'full';
 
@@ -24,7 +23,7 @@ export const createRadiiDefaultOptions: CreateRadiiOptions<string> = {
 export const createRadii = <Suffix extends string = ''>(
   options?: Partial<CreateRadiiOptions<Suffix>>,
 ) => {
-  const m = merge(createRadiiDefaultOptions, options);
+  const m = mergeOptions(createRadiiDefaultOptions, options);
   const s = suffixed(m.suffix);
   const to = (value: number) => toUnit(value, m.unit);
 

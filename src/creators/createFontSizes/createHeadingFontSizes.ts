@@ -1,7 +1,6 @@
-import merge from 'lodash.merge';
 import { createFontSizesDefaultOptions, CreateFontSizesOptions } from '.';
 import { Range, Suffixed } from '../../types';
-import { suffixed, toRem } from '../../utilities';
+import { mergeOptions, suffixed, toRem } from '../../utilities';
 
 export type HeadingFontSizeToken =
   | 'title'
@@ -16,7 +15,7 @@ export type HeadingFontSizes<Suffix extends string> = Record<
 export const createHeadingFontSizes = <Suffix extends string = ''>(
   options?: Partial<CreateFontSizesOptions<Suffix>>,
 ) => {
-  const m = merge(createFontSizesDefaultOptions, options);
+  const m = mergeOptions(createFontSizesDefaultOptions, options);
   const s = suffixed(m.suffix);
 
   return {

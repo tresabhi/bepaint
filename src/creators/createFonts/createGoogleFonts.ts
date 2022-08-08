@@ -1,5 +1,5 @@
-import merge from 'lodash.merge';
 import { createFontsDefaultOptions, CreateFontsOptions } from '.';
+import { mergeOptions } from '../../utilities';
 
 export const GOOGLE_FONTS_URL = 'https://fonts.googleapis.com';
 
@@ -27,7 +27,7 @@ const createGoogleFontsDefaultOptions: CreateGoogleFontsOptions = {
 export const createGoogleFonts = (
   options?: Partial<CreateGoogleFontsOptions>,
 ) => {
-  const m = merge(createGoogleFontsDefaultOptions, options);
+  const m = mergeOptions(createGoogleFontsDefaultOptions, options);
 
   const weights =
     typeof m.weight === 'number'
