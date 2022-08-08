@@ -18,6 +18,11 @@ export interface CreateColorsOptions<Suffix extends string>
 export const createColorsDefaultOptions: CreateColorsOptions<string> = {
   ...creatorDefaultOptions,
 
+  /**
+   * Temporary esbuild fix that fails to properly perform merging via the
+   * spread syntax
+   */
+  suffix: '',
   scale: {
     1: '',
     2: '',

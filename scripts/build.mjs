@@ -22,6 +22,7 @@ if (argv.includes('--no-transpile')) {
     platform: 'neutral',
     bundle: true,
     minify: true,
+    sourcemap: true,
 
     plugins: [!argv.includes('--no-types') && dtsPlugin()],
   });

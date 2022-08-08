@@ -1,6 +1,6 @@
 {
   "name": "bepaint",
-  "version": "0.1.6-beta",
+  "version": "0.1.7-beta",
   "description": "🧵 Quickly generate elegant themes with minimum code",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

@@ -20,8 +20,6 @@ export const createBackgroundColors = <Suffix extends string = ''>(
 ) => {
   const m = mergeOptions(createColorsDefaultOptions, options);
 
-  console.log(m);
-
   const s = suffixed(m.suffix);
   const { p } = parseScale(m.scale);
 
