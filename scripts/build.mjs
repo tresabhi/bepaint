@@ -1,4 +1,5 @@
-import { execSync } from 'child_process';
+import { build } from 'esbuild';
+import { dtsPlugin } from 'esbuild-plugin-d.ts';
 import { existsSync, readFileSync, rmSync, writeFileSync } from 'fs';
 import { argv } from 'process';
 
@@ -13,10 +14,17 @@ if (argv.includes('--no-transpile')) {
   console.warn('skipped transpiling to JavaScript');
 } else {
   console.log('transpiling to JavaScript');
-  execSync('tsc -p tsconfig.json');
 
-  console.log('adding alias paths');
-  execSync('npx tsc-alias -p tsconfig.json --resolve-full-paths --debug');
+  await build({
+    entryPoints: ['src/index.ts'],
+    outdir: BUILD_DIR,
+
+    platform: 'neutral',
+    bundle: true,
+    minify: true,
+
+    plugins: [!argv.includes('--no-types') && dtsPlugin()],
+  });
 }
 
 if (argv.includes('--publish')) {

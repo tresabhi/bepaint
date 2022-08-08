@@ -32,9 +32,7 @@ export const createGoogleFonts = (
   const weights =
     typeof m.weight === 'number'
       ? m.weight
-      : `${(m.weight as FontWeightMinMax).min}..${
-          (m.weight as FontWeightMinMax).max
-        }`;
+      : `${m.weight.min}..${m.weight.max}`;
   const families = (typeof m.family === 'string' ? [m.family] : m.family).map(
     (family) => {
       return ['family', `${family}:wght@${weights}`];

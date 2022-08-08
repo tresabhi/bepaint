@@ -23,9 +23,5 @@ export const toUnit = <Unit extends CSSLengthUnit>(
   value: number,
   unit: Unit,
 ) => {
-  return value === 0
-    ? '0'
-    : (`${
-        (CSSUnitRatios.get(unit) ?? 1) * value
-      }${unit}` as `${number}${Unit}`);
+  return value === 0 ? '0' : `${(CSSUnitRatios.get(unit) ?? 1) * value}${unit}`;
 };
