@@ -1,6 +1,5 @@
-import { creatorDefaultOptions, CreatorOptions } from '..';
-import { Suffixed } from '../../types';
-import { mergeOptions, suffixed } from '../../utilities';
+import { CreatorOptions, Suffixed } from '../../types';
+import { creatorDefaultOptions, mergeOptions, suffixed } from '../../utilities';
 
 export type FontWeightToken =
   | 'title'

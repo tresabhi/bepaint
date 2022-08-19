@@ -1,5 +1,5 @@
-import { creatorDefaultOptions, CreatorOptions } from '..';
-import { ColorScale } from '../../types';
+import { ColorScale, CreatorOptions } from '../../types';
+import { creatorDefaultOptions } from '../../utilities';
 import { createBackgroundColors } from './createBackgroundColors';
 import { createBorderColors } from './createBorderColors';
 import { createComponentBackgroundColors } from './createComponentBackgroundColors';

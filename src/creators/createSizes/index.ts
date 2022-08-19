@@ -1,5 +1,5 @@
-import { creatorDefaultOptions, CreatorOptions } from '..';
-import { CSSLengthUnit } from '../../utilities';
+import { CreatorOptions } from '../../types';
+import { creatorDefaultOptions, CSSLengthUnit } from '../../utilities';
 import { createIconSizes } from './createIconSizes';
 
 export * from './createIconSizes';

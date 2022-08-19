@@ -1,4 +1,5 @@
-import { creatorDefaultOptions, CreatorOptions } from '..';
+import { CreatorOptions } from '../../types';
+import { creatorDefaultOptions } from '../../utilities';
 import { createDocumentFontSizes } from './createDocumentFontSizes';
 import { createHeadingFontSizes } from './createHeadingFontSizes';
 

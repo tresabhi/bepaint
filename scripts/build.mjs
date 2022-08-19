@@ -24,7 +24,7 @@ if (argv.includes('--no-transpile')) {
     minify: true,
     sourcemap: true,
 
-    plugins: [!argv.includes('--no-types') && dtsPlugin()],
+    plugins: !argv.includes('--no-types') ? [dtsPlugin()] : [],
   });
 }
 
