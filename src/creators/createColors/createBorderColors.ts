@@ -22,8 +22,8 @@ export const createBorderColors = <Suffix extends string = ''>(
     [`componentNonInteractiveBorder${s}`]: m.scale[`${p}6`],
     [`componentNonInteractiveBorderHover${s}`]: m.scale[`${p}7`],
     [`componentNonInteractiveBorderActive${s}`]: m.scale[`${p}8`],
-    [`componentInteractiveBorder${s}`]: m.scale[`${p}6`],
-    [`componentInteractiveBorderHover${s}`]: m.scale[`${p}7`],
+    [`componentInteractiveBorder${s}`]: m.scale[`${p}7`],
+    [`componentInteractiveBorderHover${s}`]: m.scale[`${p}8`],
     [`componentInteractiveBorderActive${s}`]: m.scale[`${p}8`],
   } as BorderColors<Suffix>;
 };
