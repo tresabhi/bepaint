@@ -12,7 +12,10 @@ export type ColorNames<Name extends string> =
   | `${Name}11`
   | `${Name}12`;
 
-export type Colors<Name extends string> = Record<ColorNames<Name>, string>;
+export type ColorsPallet<Name extends string> = Record<
+  ColorNames<Name>,
+  string
+>;
 
 export type NamelessColorNames = ColorNames<''>;
 

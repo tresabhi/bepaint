@@ -1,4 +1,4 @@
-import { Colors } from 'types/colors';
+import { ColorsPallet } from 'types/colors';
 import normalizeSuffix, { NormalizeSuffix } from 'utilities/normalizeSuffix';
 import stripColors from 'utilities/stripColors';
 
@@ -18,7 +18,7 @@ export type BackgroundColors<Suffix extends string | undefined> = Record<
 export function createBackgroundColors<
   Name extends string,
   Suffix extends string | undefined,
->(colors: Colors<Name>, suffix?: Suffix) {
+>(colors: ColorsPallet<Name>, suffix?: Suffix) {
   const s = normalizeSuffix(suffix);
   const c = stripColors(colors);
 

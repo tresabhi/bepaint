@@ -6,9 +6,12 @@
     "esModuleInterop": true,
     "moduleResolution": "Node",
     "declaration": true,
-    "baseUrl": "src/",
-    "outDir": "dist/"
+    "baseUrl": "src",
+    "outDir": "dist",
+    "resolveJsonModule": true,
+    "skipLibCheck": true
   },
 
-  "include": ["src/**/*"]
+  "include": ["src", "package.json", "tsconfig.json"],
+  "exclude": ["**/*.test.ts"]
 }

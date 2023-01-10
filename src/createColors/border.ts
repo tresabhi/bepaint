@@ -1,4 +1,4 @@
-import { Colors } from 'types/colors';
+import { ColorsPallet } from 'types/colors';
 import { ComponentStates } from 'types/componentStates';
 import normalizeSuffix, { NormalizeSuffix } from 'utilities/normalizeSuffix';
 import stripColors from 'utilities/stripColors';
@@ -15,7 +15,7 @@ export type BorderColors<Suffix extends string | undefined> = Record<
 export function createBorderColors<
   Name extends string,
   Suffix extends string | undefined,
->(colors: Colors<Name>, suffix?: Suffix) {
+>(colors: ColorsPallet<Name>, suffix?: Suffix) {
   const s = normalizeSuffix(suffix);
   const c = stripColors(colors);
 

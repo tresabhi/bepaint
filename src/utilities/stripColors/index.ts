@@ -1,13 +1,15 @@
 import {
   ColorNames,
-  Colors,
+  ColorsPallet,
   NamelessColorNames,
   NamelessColors,
 } from 'types/colors';
 
 export const colorIndexRegex = /[0-9]+/;
 
-export default function stripColors<Name extends string>(colors: Colors<Name>) {
+export default function stripColors<Name extends string>(
+  colors: ColorsPallet<Name>,
+) {
   const keys = Object.keys(colors) as ColorNames<Name>[];
   const strippedColors: Partial<NamelessColors> = {};
 

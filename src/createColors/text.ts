@@ -1,25 +1,25 @@
-import { Colors } from 'types/colors';
+import { ColorsPallet } from 'types/colors';
 import normalizeSuffix, { NormalizeSuffix } from 'utilities/normalizeSuffix';
 import stripColors from 'utilities/stripColors';
 
-export type BorderColorNames<Suffix extends string | undefined> = `text${
+export type TextColorNames<Suffix extends string | undefined> = `text${
   | 'LowContrast'
   | 'HighContrast'}${NormalizeSuffix<Suffix>}`;
 
-export type BorderColors<Suffix extends string | undefined> = Record<
-  BorderColorNames<Suffix>,
+export type TextColors<Suffix extends string | undefined> = Record<
+  TextColorNames<Suffix>,
   string
 >;
 
-export function createBorderColors<
+export function createTextColors<
   Name extends string,
   Suffix extends string | undefined,
->(colors: Colors<Name>, suffix?: Suffix) {
+>(colors: ColorsPallet<Name>, suffix?: Suffix) {
   const s = normalizeSuffix(suffix);
   const c = stripColors(colors);
 
   return {
     [`textLowContrast${s}`]: c[11],
     [`textHighContrast${s}`]: c[12],
-  } as BorderColors<Suffix>;
+  } as TextColors<Suffix>;
 }
