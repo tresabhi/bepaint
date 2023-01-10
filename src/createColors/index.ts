@@ -20,8 +20,8 @@ export type Colors<Suffix extends SuffixInput> = Record<
   string
 >;
 
-export function createColors<Name extends string, Suffix extends SuffixInput>(
-  colors: Colors<Name>,
+export function createColors<Suffix extends SuffixInput>(
+  colors: Colors<string>,
   suffix?: Suffix,
 ) {
   return {

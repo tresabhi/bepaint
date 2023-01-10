@@ -14,10 +14,10 @@ export type ComponentColors<Suffix extends SuffixInput> = Record<
   string
 >;
 
-export function createComponentColors<
-  Name extends string,
-  Suffix extends SuffixInput,
->(colors: ColorsPallet<Name>, suffix?: Suffix) {
+export function createComponentColors<Suffix extends SuffixInput>(
+  colors: ColorsPallet<string>,
+  suffix?: Suffix,
+) {
   const s = normalizeSuffix(suffix);
   const c = stripColors(colors);
 

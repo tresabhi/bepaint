@@ -12,10 +12,10 @@ export type TextColors<Suffix extends SuffixInput> = Record<
   string
 >;
 
-export function createTextColors<
-  Name extends string,
-  Suffix extends SuffixInput,
->(colors: ColorsPallet<Name>, suffix?: Suffix) {
+export function createTextColors<Suffix extends SuffixInput>(
+  colors: ColorsPallet<string>,
+  suffix?: Suffix,
+) {
   const s = normalizeSuffix(suffix);
   const c = stripColors(colors);
 

@@ -13,10 +13,10 @@ export type BorderColors<Suffix extends SuffixInput> = Record<
   string
 >;
 
-export function createBorderColors<
-  Name extends string,
-  Suffix extends SuffixInput,
->(colors: ColorsPallet<Name>, suffix?: Suffix) {
+export function createBorderColors<Suffix extends SuffixInput>(
+  colors: ColorsPallet<string>,
+  suffix?: Suffix,
+) {
   const s = normalizeSuffix(suffix);
   const c = stripColors(colors);
 

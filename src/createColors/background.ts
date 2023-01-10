@@ -16,10 +16,10 @@ export type BackgroundColors<Suffix extends SuffixInput> = Record<
   string
 >;
 
-export function createBackgroundColors<
-  Name extends string,
-  Suffix extends SuffixInput,
->(colors: ColorsPallet<Name>, suffix?: Suffix) {
+export function createBackgroundColors<Suffix extends SuffixInput>(
+  colors: ColorsPallet<string>,
+  suffix?: Suffix,
+) {
   const s = normalizeSuffix(suffix);
   const c = stripColors(colors);
 

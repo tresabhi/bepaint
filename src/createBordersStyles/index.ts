@@ -14,10 +14,9 @@ export type BorderStyles<Suffix extends SuffixInput> = Record<
 >;
 
 export function createBordersStyles<
-  Name extends string,
   Suffix extends SuffixInput,
 >(
-  colors: ColorsPallet<Name>,
+  colors: ColorsPallet<string>,
   suffix?: Suffix,
   borderStyles = `solid ${toREM(1)}`,
 ) {
