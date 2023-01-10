@@ -15,11 +15,11 @@ export type FontSizes<Suffix extends SuffixInput> = Record<
 >;
 
 export function createFontSizes<Suffix extends SuffixInput>(
-  suffix?: Suffix,
   scale = 1,
+  suffix?: Suffix,
 ) {
   return {
-    ...createBodyFontSizes(suffix, scale),
-    ...createHeadingFontSizes(suffix, scale),
+    ...createBodyFontSizes(scale, suffix),
+    ...createHeadingFontSizes(scale, suffix),
   } as FontSizes<Suffix>;
 }

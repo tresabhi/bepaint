@@ -13,8 +13,8 @@ export type BodyFontSizes<Suffix extends SuffixInput> = Record<
 >;
 
 export function createBodyFontSizes<Suffix extends SuffixInput>(
-  suffix?: Suffix,
   scale = 1,
+  suffix?: Suffix,
 ) {
   const s = normalizeSuffix(suffix);
 

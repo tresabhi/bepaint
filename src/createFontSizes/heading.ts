@@ -12,8 +12,8 @@ export type HeadingFontSizes<Suffix extends SuffixInput> = Record<
 >;
 
 export function createHeadingFontSizes<Suffix extends SuffixInput>(
-  suffix?: Suffix,
   scale = 1,
+  suffix?: Suffix,
 ) {
   const s = normalizeSuffix(suffix);
 
