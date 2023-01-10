@@ -1,20 +1,21 @@
 import { ColorsPallet } from 'types/colors';
 import { ComponentStates } from 'types/componentStates';
+import { SuffixInput } from 'types/suffix';
 import normalizeSuffix, { NormalizeSuffix } from 'utilities/normalizeSuffix';
 import stripColors from 'utilities/stripColors';
 
-export type BorderColorNames<Suffix extends string | undefined> = `border${
+export type BorderColorNames<Suffix extends SuffixInput> = `border${
   | 'NonInteractive'
   | `Interactive${ComponentStates}`}${NormalizeSuffix<Suffix>}`;
 
-export type BorderColors<Suffix extends string | undefined> = Record<
+export type BorderColors<Suffix extends SuffixInput> = Record<
   BorderColorNames<Suffix>,
   string
 >;
 
 export function createBorderColors<
   Name extends string,
-  Suffix extends string | undefined,
+  Suffix extends SuffixInput,
 >(colors: ColorsPallet<Name>, suffix?: Suffix) {
   const s = normalizeSuffix(suffix);
   const c = stripColors(colors);

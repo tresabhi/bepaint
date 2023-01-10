@@ -1,17 +1,18 @@
+import { SuffixInput } from 'types/suffix';
 import normalizeSuffix, { NormalizeSuffix } from 'utilities/normalizeSuffix';
 import toREM from 'utilities/toREM';
 
-export type BodyFontSizeNames<Suffix extends string | undefined> = `${
+export type BodyFontSizeNames<Suffix extends SuffixInput> = `${
   | 'paragraph'
   | 'input'
   | 'label'}${NormalizeSuffix<Suffix>}`;
 
-export type BodyFontSizes<Suffix extends string | undefined> = Record<
+export type BodyFontSizes<Suffix extends SuffixInput> = Record<
   BodyFontSizeNames<Suffix>,
   string
 >;
 
-export function createBodyFontSizes<Suffix extends string | undefined>(
+export function createBodyFontSizes<Suffix extends SuffixInput>(
   suffix?: Suffix,
   scale = 1,
 ) {

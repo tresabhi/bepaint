@@ -1,16 +1,17 @@
+import { SuffixInput } from 'types/suffix';
 import normalizeSuffix, { NormalizeSuffix } from 'utilities/normalizeSuffix';
 import toREM from 'utilities/toREM';
 
-export type HeadingFontSizeNames<Suffix extends string | undefined> = `${
+export type HeadingFontSizeNames<Suffix extends SuffixInput> = `${
   | `heading${1 | 2 | 3 | 4 | 5 | 6}`
   | 'subheading'}${NormalizeSuffix<Suffix>}`;
 
-export type HeadingFontSizes<Suffix extends string | undefined> = Record<
+export type HeadingFontSizes<Suffix extends SuffixInput> = Record<
   HeadingFontSizeNames<Suffix>,
   string
 >;
 
-export function createHeadingFontSizes<Suffix extends string | undefined>(
+export function createHeadingFontSizes<Suffix extends SuffixInput>(
   suffix?: Suffix,
   scale = 1,
 ) {

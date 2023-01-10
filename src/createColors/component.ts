@@ -1,22 +1,22 @@
 import { ColorsPallet } from 'types/colors';
 import { ComponentStates } from 'types/componentStates';
+import { SuffixInput } from 'types/suffix';
 import normalizeSuffix, { NormalizeSuffix } from 'utilities/normalizeSuffix';
 import stripColors from 'utilities/stripColors';
 
-export type ComponentColorNames<Suffix extends string | undefined> =
-  `component${
-    | ''
-    | 'CallToAction'
-    | 'Solid'}${ComponentStates}${NormalizeSuffix<Suffix>}`;
+export type ComponentColorNames<Suffix extends SuffixInput> = `component${
+  | ''
+  | 'CallToAction'
+  | 'Solid'}${ComponentStates}${NormalizeSuffix<Suffix>}`;
 
-export type ComponentColors<Suffix extends string | undefined> = Record<
+export type ComponentColors<Suffix extends SuffixInput> = Record<
   ComponentColorNames<Suffix>,
   string
 >;
 
 export function createComponentColors<
   Name extends string,
-  Suffix extends string | undefined,
+  Suffix extends SuffixInput,
 >(colors: ColorsPallet<Name>, suffix?: Suffix) {
   const s = normalizeSuffix(suffix);
   const c = stripColors(colors);

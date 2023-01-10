@@ -1,20 +1,21 @@
 import { BorderColorNames } from 'createColors';
 import { ColorsPallet } from 'types/colors';
+import { SuffixInput } from 'types/suffix';
 import normalizeSuffix from 'utilities/normalizeSuffix';
 import stripColors from 'utilities/stripColors';
 import toREM from 'utilities/toREM';
 
-export type BorderStyleNames<Suffix extends string | undefined> =
+export type BorderStyleNames<Suffix extends SuffixInput> =
   BorderColorNames<Suffix>;
 
-export type BorderStyles<Suffix extends string | undefined> = Record<
+export type BorderStyles<Suffix extends SuffixInput> = Record<
   BorderColorNames<Suffix>,
   string
 >;
 
 export function createBordersStyles<
   Name extends string,
-  Suffix extends string | undefined,
+  Suffix extends SuffixInput,
 >(
   colors: ColorsPallet<Name>,
   suffix?: Suffix,

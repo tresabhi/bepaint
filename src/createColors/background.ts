@@ -1,8 +1,9 @@
 import { ColorsPallet } from 'types/colors';
+import { SuffixInput } from 'types/suffix';
 import normalizeSuffix, { NormalizeSuffix } from 'utilities/normalizeSuffix';
 import stripColors from 'utilities/stripColors';
 
-export type BackgroundColorNames<Suffix extends string | undefined> = `${
+export type BackgroundColorNames<Suffix extends SuffixInput> = `${
   | 'app'
   | 'table'
   | 'code'
@@ -10,14 +11,14 @@ export type BackgroundColorNames<Suffix extends string | undefined> = `${
   | 'sidebar'
   | 'canvas'}Background${1 | 2}${NormalizeSuffix<Suffix>}`;
 
-export type BackgroundColors<Suffix extends string | undefined> = Record<
+export type BackgroundColors<Suffix extends SuffixInput> = Record<
   BackgroundColorNames<Suffix>,
   string
 >;
 
 export function createBackgroundColors<
   Name extends string,
-  Suffix extends string | undefined,
+  Suffix extends SuffixInput,
 >(colors: ColorsPallet<Name>, suffix?: Suffix) {
   const s = normalizeSuffix(suffix);
   const c = stripColors(colors);
