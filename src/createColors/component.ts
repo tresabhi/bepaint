@@ -1,13 +1,13 @@
 import { Colors } from 'types/colors';
+import { ComponentStates } from 'types/componentStates';
 import normalizeSuffix, { NormalizeSuffix } from 'utilities/normalizeSuffix';
 import stripColors from 'utilities/stripColors';
 
 export type ComponentColorNames<Suffix extends string | undefined> =
-  `component${'' | 'CallToAction'}${
+  `component${
     | ''
-    | 'Hovered'
-    | 'Pressed'
-    | 'Selected'}${NormalizeSuffix<Suffix>}`;
+    | 'CallToAction'
+    | 'Solid'}${ComponentStates}${NormalizeSuffix<Suffix>}`;
 
 export type ComponentColors<Suffix extends string | undefined> = Record<
   ComponentColorNames<Suffix>,
@@ -30,5 +30,9 @@ export function createComponentColors<
     [`componentCallToActionHovered${s}`]: c[5],
     [`componentCallToActionPressed${s}`]: c[6],
     [`componentCallToActionSelected${s}`]: c[6],
+    [`componentSolid${s}`]: c[9],
+    [`componentSolidHovered${s}`]: c[10],
+    [`componentSolidPressed${s}`]: c[11],
+    [`componentSolidSelected${s}`]: c[11],
   } as ComponentColors<Suffix>;
 }
