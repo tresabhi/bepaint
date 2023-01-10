@@ -1,6 +1,6 @@
 import stripColors from '.';
 
-test(`${stripColors.name} correctly strips color name`, () => {
+test(`${stripColors.name} strips color name`, () => {
   expect(
     stripColors({
       testTest1: 'a',

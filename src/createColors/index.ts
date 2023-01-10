@@ -1,2 +1,1 @@
-
-export function createColors
+export * from './background';

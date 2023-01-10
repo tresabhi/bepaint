@@ -1,0 +1,39 @@
+import { Colors } from 'types/colors';
+import normalizeSuffix, { NormalizeSuffix } from 'utilities/normalizeSuffix';
+import stripColors from 'utilities/stripColors';
+
+export type BackgroundColorNames<Suffix extends string | undefined> = `${
+  | 'app'
+  | 'table'
+  | 'code'
+  | 'card'
+  | 'sidebar'
+  | 'canvas'}Background${1 | 2}${NormalizeSuffix<Suffix>}`;
+
+export type BackgroundColors<Suffix extends string | undefined> = Record<
+  BackgroundColorNames<Suffix>,
+  string
+>;
+
+export function createBackgroundColors<
+  Name extends string,
+  Suffix extends string | undefined,
+>(colors: Colors<Name>, suffix?: Suffix) {
+  const s = normalizeSuffix(suffix);
+  const c = stripColors(colors);
+
+  return {
+    [`appBackground1${s}`]: c[1],
+    [`appBackground2${s}`]: c[2],
+    [`tableBackground1${s}`]: c[1],
+    [`tableBackground2${s}`]: c[2],
+    [`codeBackground1${s}`]: c[1],
+    [`codeBackground2${s}`]: c[2],
+    [`cardBackground1${s}`]: c[1],
+    [`cardBackground2${s}`]: c[2],
+    [`sidebarBackground1${s}`]: c[1],
+    [`sidebarBackground2${s}`]: c[2],
+    [`canvasBackground1${s}`]: c[1],
+    [`canvasBackground2${s}`]: c[2],
+  } as BackgroundColors<Suffix>;
+}

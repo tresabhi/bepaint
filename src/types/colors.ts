@@ -1,4 +1,4 @@
-export type Colors<Name extends string> =
+export type ColorNames<Name extends string> =
   | `${Name}1`
   | `${Name}2`
   | `${Name}3`
@@ -12,8 +12,8 @@ export type Colors<Name extends string> =
   | `${Name}11`
   | `${Name}12`;
 
-export type ColorObject<Name extends string> = Record<Colors<Name>, string>;
+export type Colors<Name extends string> = Record<ColorNames<Name>, string>;
 
-export type NamelessColors = Colors<''>;
+export type NamelessColorNames = ColorNames<''>;
 
-export type NamelessColorObject = Record<NamelessColors, string>;
+export type NamelessColors = Record<NamelessColorNames, string>;
