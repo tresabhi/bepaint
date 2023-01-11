@@ -4,12 +4,8 @@ import normalizeSuffix, { NormalizeSuffix } from 'utilities/normalizeSuffix';
 import stripColors from 'utilities/stripColors';
 
 export type BackgroundColorNames<Suffix extends SuffixInput> = `${
-  | 'app'
-  | 'table'
-  | 'code'
-  | 'card'
-  | 'sidebar'
-  | 'canvas'}Background${1 | 2}${NormalizeSuffix<Suffix>}`;
+  | `${'app' | 'table' | 'code' | 'card' | 'sidebar' | 'canvas'}${1 | 2}`
+  | 'solid'}Background${NormalizeSuffix<Suffix>}`;
 
 export type BackgroundColors<Suffix extends SuffixInput> = Record<
   BackgroundColorNames<Suffix>,
@@ -36,5 +32,6 @@ export function createBackgroundColors<Suffix extends SuffixInput>(
     [`sidebarBackground2${s}`]: c[2],
     [`canvasBackground1${s}`]: c[1],
     [`canvasBackground2${s}`]: c[2],
+    [`solidBackground${s}`]: c[9],
   } as BackgroundColors<Suffix>;
 }
