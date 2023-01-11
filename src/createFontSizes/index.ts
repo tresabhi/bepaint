@@ -2,9 +2,6 @@ import { SuffixInput } from 'types/suffix';
 import { BodyFontSizeNames, createBodyFontSizes } from './body';
 import { createHeadingFontSizes, HeadingFontSizeNames } from './heading';
 
-export * from './body';
-export * from './heading';
-
 export type FontSizeNames<Suffix extends SuffixInput> =
   | BodyFontSizeNames<Suffix>
   | HeadingFontSizeNames<Suffix>;
@@ -23,3 +20,6 @@ export function createFontSizes<Suffix extends SuffixInput>(
     ...createHeadingFontSizes(scale, suffix),
   } as FontSizes<Suffix>;
 }
+
+export * from './body';
+export * from './heading';

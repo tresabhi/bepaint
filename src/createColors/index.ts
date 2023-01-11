@@ -4,11 +4,6 @@ import { BorderColorNames, createBorderColors } from './border';
 import { ComponentColorNames, createComponentColors } from './component';
 import { createTextColors, TextColorNames } from './text';
 
-export * from './background';
-export * from './border';
-export * from './component';
-export * from './text';
-
 export type ColorNames<Suffix extends SuffixInput> =
   | BackgroundColorNames<Suffix>
   | BorderColorNames<Suffix>
@@ -31,3 +26,8 @@ export function createColors<Suffix extends SuffixInput>(
     ...createTextColors(colors, suffix),
   } as Colors<Suffix>;
 }
+
+export * from './background';
+export * from './border';
+export * from './component';
+export * from './text';

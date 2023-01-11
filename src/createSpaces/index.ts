@@ -23,3 +23,7 @@ export function createSpaces<Suffix extends SuffixInput>(
     ...createPaddings(scale, suffix),
   } as Spaces<Suffix>;
 }
+
+export * from './gap';
+export * from './margin';
+export * from './padding';
