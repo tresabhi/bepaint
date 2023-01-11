@@ -12,6 +12,6 @@
     "skipLibCheck": true
   },
 
-  "include": ["src", "package.json", "tsconfig.json"],
+  "include": ["src"],
   "exclude": ["**/*.test.ts"]
 }
