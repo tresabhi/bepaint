@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "ES3",
+    "target": "ES5",
     "module": "ESNext",
     "strict": true,
     "esModuleInterop": true,
@@ -9,7 +9,9 @@
     "baseUrl": "src",
     "outDir": "dist",
     "resolveJsonModule": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "noUncheckedIndexedAccess": true,
+    "noEmit": true
   },
 
   "include": ["src"],
