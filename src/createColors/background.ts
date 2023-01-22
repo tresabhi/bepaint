@@ -4,8 +4,10 @@ import normalizeSuffix, { NormalizeSuffix } from 'utilities/normalizeSuffix';
 import stripColors from 'utilities/stripColors';
 
 export type BackgroundColorNames<Suffix extends SuffixInput> = `${
-  | `${'app' | 'table' | 'code' | 'card' | 'sidebar' | 'canvas'}${1 | 2}`
-  | 'solid'}Background${NormalizeSuffix<Suffix>}`;
+  | `${'app' | 'table' | 'code' | 'card' | 'sidebar' | 'canvas'}Background${
+      | 1
+      | 2}`
+  | 'solidBackground'}${NormalizeSuffix<Suffix>}`;
 
 export type BackgroundColors<Suffix extends SuffixInput> = Record<
   BackgroundColorNames<Suffix>,
