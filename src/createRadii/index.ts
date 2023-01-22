@@ -4,6 +4,7 @@ import toREM from 'utilities/toREM';
 
 export type RadiusNames<Suffix extends SuffixInput> = `${
   | 'regular'
+  | 'full'
   | `${'sharp' | 'blunt'}${'' | 'er'}`}${NormalizeSuffix<Suffix>}`;
 
 export type Radii<Suffix extends SuffixInput> = Record<
@@ -23,5 +24,6 @@ export function createRadii<Suffix extends SuffixInput>(
     [`sharper${s}`]: toREM(1 * scale),
     [`blunt${s}`]: toREM(8 * scale),
     [`blunter${s}`]: toREM(16 * scale),
+    [`full${s}`]: '50%',
   } as Radii<Suffix>;
 }
