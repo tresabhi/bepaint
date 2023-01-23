@@ -25,7 +25,8 @@
   "scripts": {
     "build": "rm -rf dist && tsup",
     "test": "jest",
-    "lint": "tsc"
+    "lint": "tsc",
+    "prepublishOnly": "npm run build"
   },
   "tsup": {
     "entry": [
