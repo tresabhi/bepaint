@@ -13,13 +13,12 @@ export type BorderStyles<Suffix extends SuffixInput> = Record<
   string
 >;
 
-export function createBordersStyles<
-  Suffix extends SuffixInput,
->(
+export function createBordersStyles<Suffix extends SuffixInput>(
   colors: ColorsPallet<string>,
   suffix?: Suffix,
   borderStyles = `solid ${toREM(1)}`,
 ) {
+  // TODO: move borderStyles before suffix
   const s = normalizeSuffix(suffix);
   const c = stripColors(colors);
 
