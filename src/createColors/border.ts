@@ -1,12 +1,12 @@
 import { ColorsPallet } from 'types/colors';
 import { ComponentStates } from 'types/componentStates';
+import { ComponentUsability } from 'types/componentUsability';
 import { SuffixInput } from 'types/suffix';
 import normalizeSuffix, { NormalizeSuffix } from 'utilities/normalizeSuffix';
 import stripColors from 'utilities/stripColors';
 
-export type BorderColorNames<Suffix extends SuffixInput> = `border${
-  | 'NonInteractive'
-  | `Interactive${ComponentStates}`}${NormalizeSuffix<Suffix>}`;
+export type BorderColorNames<Suffix extends SuffixInput> =
+  `border${ComponentUsability<ComponentStates>}${NormalizeSuffix<Suffix>}`;
 
 export type BorderColors<Suffix extends SuffixInput> = Record<
   BorderColorNames<Suffix>,

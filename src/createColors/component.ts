@@ -1,14 +1,13 @@
 import { ColorsPallet } from 'types/colors';
 import { ComponentPriorities } from 'types/componentPriorities';
 import { ComponentStates } from 'types/componentStates';
+import { ComponentUsability } from 'types/componentUsability';
 import { SuffixInput } from 'types/suffix';
 import normalizeSuffix, { NormalizeSuffix } from 'utilities/normalizeSuffix';
 import stripColors from 'utilities/stripColors';
 
 export type ComponentColorNames<Suffix extends SuffixInput> =
-  `component${ComponentPriorities}${
-    | `Interactive${ComponentStates}`
-    | 'NonInteractive'}${NormalizeSuffix<Suffix>}`;
+  `component${ComponentPriorities}${ComponentUsability<ComponentStates>}${NormalizeSuffix<Suffix>}`;
 
 export type ComponentColors<Suffix extends SuffixInput> = Record<
   ComponentColorNames<Suffix>,

@@ -1,17 +1,16 @@
-import { BorderColorNames } from 'createColors';
 import { ColorsPallet } from 'types/colors';
 import { ComponentStates } from 'types/componentStates';
+import { ComponentUsabilityNoCap } from 'types/componentUsability';
 import { SuffixInput } from 'types/suffix';
 import normalizeSuffix, { NormalizeSuffix } from 'utilities/normalizeSuffix';
 import stripColors from 'utilities/stripColors';
 import toREM from 'utilities/toREM';
 
-export type BorderStyleNames<Suffix extends SuffixInput> = `${
-  | 'NonInteractive'
-  | `Interactive${ComponentStates}`}${NormalizeSuffix<Suffix>}`;
+export type BorderStyleNames<Suffix extends SuffixInput> =
+  `${ComponentUsabilityNoCap<ComponentStates>}${NormalizeSuffix<Suffix>}`;
 
 export type BorderStyles<Suffix extends SuffixInput> = Record<
-  BorderColorNames<Suffix>,
+  BorderStyleNames<Suffix>,
   string
 >;
 
