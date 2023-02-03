@@ -1,1 +1,1 @@
-export type ComponentStates = '' | 'Hovered' | 'Pressed' | 'Selected';
+export type ComponentStates = '' | 'Hovered' | 'Active' | 'Focused';

@@ -93,7 +93,7 @@ The flagship creator deals with creating colors for use anywhere that requires i
 
 ## Create Border Styles
 
-- `createBordersStyles`
+- `createBorderStyles`
   - Simple plug-and-chug presets for the CSS `border` property
   - Accepts a color pallet
   - Accepts a suffix
@@ -138,6 +138,25 @@ The flagship creator deals with creating colors for use anywhere that requires i
 
 # Changelogs
 
+## Bepaint v0.1.0 Beta 2
+
+### ComponentStates
+
+- Renamed `Pressed` to `Active`
+- Renamed `Hovered` to `Hover`
+- Renamed `Selected` to `Focused`
+
+### Create Border Styles
+
+- Renamed to `createBorderStyles` from `createBordersStyles`
+- The redundant `border` prefix has been removed
+- The `borderStyles` argument has been moved before `suffix`
+
+## Create Component Colors
+
+- Added `componentNonInteractive`
+- Moved `ComponentPriorities` in front of `ComponentStates`
+
 ## Bepaint v0.1.0 Beta 1
 
 ### Generate Creator Info
@@ -162,7 +181,7 @@ The flagship creator deals with creating colors for use anywhere that requires i
 
 ### Create Colors
 
-> **Warning** `...Pressed` will be replaced with `...Active`
+> **Warning** `...Active` will be replaced with `...Active`
 
 > **Warning** `...Hovered` will be replaced with `...Hover`
 

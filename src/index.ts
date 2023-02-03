@@ -1,4 +1,4 @@
-export * from 'createBordersStyles';
+export * from 'createBorderStyles';
 export * from 'createColors';
 export * from 'createFontSizes';
 export * from 'createRadii';
