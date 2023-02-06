@@ -15,7 +15,11 @@ export default function stripColors<Name extends string>(
 
   keys.forEach((key) => {
     const value = colors[key];
-    const colorIndex = key.match(colorIndexRegex)?.[0] as NamelessColorNames;
+    const matches = key.match(colorIndexRegex);
+
+    if (matches === null) throw new Error(`${key} is not a valid color index`);
+
+    const colorIndex = matches?.[0] as NamelessColorNames;
 
     strippedColors[colorIndex] = value;
   });
