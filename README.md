@@ -136,9 +136,20 @@ The flagship creator deals with creating colors for use anywhere that requires i
   - Accepts a `borderStyles` argument
     - Lets you change the style of the border which, by default, is `solid 0.0625rem` (`1px` wide solid border)
 
+## Create Border Widths
+
+- `createBorderWidths`: common border widths to be used in the CSS `border-width` property
+
+## Create Font Weights
+
+- `createFontWeights`: common font weights to be used in the CSS `font-weight` property
+
 # Changelogs
 
 ## Bepaint v0.1.0 Beta 2
+
+- Added `createFontWeights`
+- Added `createBorderWidths`
 
 ### ComponentStates
 
@@ -152,18 +163,23 @@ The flagship creator deals with creating colors for use anywhere that requires i
 - The redundant `border` prefix has been removed
 - The `borderStyles` argument has been moved before `suffix`
 
-## Create Component Colors
+### Create Component Colors
 
 - Added `componentNonInteractive`
 - Moved `ComponentPriorities` in front of `ComponentStates`
 
-## Create Heading Font Sizes
+### Create Heading Font Sizes
 
 - Added `title`
 
-## Create Body Font Sizes
+### Create Body Font Sizes
 
 - Added `footnote`
+- Added `title`
+
+### Create Colors
+
+- Added `textDecoration`
 
 ## Bepaint v0.1.0 Beta 1
 
@@ -177,10 +193,6 @@ The flagship creator deals with creating colors for use anywhere that requires i
 
 ### Create Borders Styles
 
-> **Warning** `createBordersStyles` is misspelled and will be renamed to `createBorderStyles` in the next beta
-
-> **Warning** the `border` suffix is redundant and will be removed in the next beta
-
 - Accepts color pallet
 - Accepts `borderStyles` argument
   - Lets you change the CSS properties of the border
@@ -188,14 +200,6 @@ The flagship creator deals with creating colors for use anywhere that requires i
   - `borderStyles` will be prefixed with the color of choice
 
 ### Create Colors
-
-> **Warning** `...Active` will be replaced with `...Active`
-
-> **Warning** `...Hovered` will be replaced with `...Hover`
-
-> **Warning** `component` will be replaced with `componentInteractive`
-
-> **Warning** `componentNonInteractive` is currently missing
 
 - Accepts color pallet
 - Meant to be used anywhere that requires colors
