@@ -144,6 +144,12 @@ The flagship creator deals with creating colors for use anywhere that requires i
 
 - `createFontWeights`: common font weights to be used in the CSS `font-weight` property
 
+# Contributing
+
+- Follow the implementation pattern seen in the rest of the files in the repository
+- Make sure to use [Prettier](https://prettier.io/) as the source code comes with a very opinionated `.prettierrc`
+  - Run `yarn format` for good measure
+
 # Changelogs
 
 ## Bepaint v0.1.0 Beta 2
