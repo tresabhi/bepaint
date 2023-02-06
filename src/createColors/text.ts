@@ -22,5 +22,6 @@ export function createTextColors<Suffix extends SuffixInput>(
   return {
     [`textLowContrast${s}`]: c[11],
     [`textHighContrast${s}`]: c[12],
+    [`textDecoration${s}`]: c[11],
   } as TextColors<Suffix>;
 }
