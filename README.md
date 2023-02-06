@@ -157,6 +157,14 @@ The flagship creator deals with creating colors for use anywhere that requires i
 - Added `componentNonInteractive`
 - Moved `ComponentPriorities` in front of `ComponentStates`
 
+## Create Heading Font Sizes
+
+- Added `title`
+
+## Create Body Font Sizes
+
+- Added `footnote`
+
 ## Bepaint v0.1.0 Beta 1
 
 ### Generate Creator Info

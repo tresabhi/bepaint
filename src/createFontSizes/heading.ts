@@ -4,7 +4,8 @@ import toREM from 'utilities/toREM';
 
 export type HeadingFontSizeNames<Suffix extends SuffixInput> = `${
   | `heading${1 | 2 | 3 | 4 | 5 | 6}`
-  | 'subheading'}${NormalizeSuffix<Suffix>}`;
+  | 'subheading'
+  | 'title'}${NormalizeSuffix<Suffix>}`;
 
 export type HeadingFontSizes<Suffix extends SuffixInput> = Record<
   HeadingFontSizeNames<Suffix>,
@@ -18,6 +19,7 @@ export function createHeadingFontSizes<Suffix extends SuffixInput>(
   const s = normalizeSuffix(suffix);
 
   return {
+    [`title${s}`]: toREM(64 * scale),
     [`heading1${s}`]: toREM(32 * scale),
     [`heading2${s}`]: toREM(24 * scale),
     [`heading3${s}`]: toREM(18 * scale),
