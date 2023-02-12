@@ -152,6 +152,12 @@ The flagship creator deals with creating colors for use anywhere that requires i
 
 # Changelogs
 
+## Bepaint v0.1.0 Beta 3
+
+### ComponentStates
+
+- Renamed `Hovered` to `Hover`
+
 ## Bepaint v0.1.0 Beta 2
 
 - Added `createFontWeights`
@@ -160,7 +166,6 @@ The flagship creator deals with creating colors for use anywhere that requires i
 ### ComponentStates
 
 - Renamed `Pressed` to `Active`
-- Renamed `Hovered` to `Hover`
 - Renamed `Selected` to `Focused`
 
 ### Create Border Styles

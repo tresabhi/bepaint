@@ -25,7 +25,7 @@ export function createBorderStyles<Suffix extends SuffixInput>(
   return {
     [`nonInteractive${s}`]: `${c[6]} ${borderStyles}`,
     [`interactive${s}`]: `${c[7]} ${borderStyles}`,
-    [`interactiveHovered${s}`]: `${c[8]} ${borderStyles}`,
+    [`interactiveHover${s}`]: `${c[8]} ${borderStyles}`,
     [`interactiveActive${s}`]: `${c[9]} ${borderStyles}`,
     [`interactiveFocused${s}`]: `${c[9]} ${borderStyles}`,
   } as BorderStyles<Suffix>;

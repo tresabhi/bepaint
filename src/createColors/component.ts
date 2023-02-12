@@ -23,15 +23,15 @@ export function createComponentColors<Suffix extends SuffixInput>(
 
   return {
     [`componentInteractive${s}`]: c[3],
-    [`componentInteractiveHovered${s}`]: c[4],
+    [`componentInteractiveHover${s}`]: c[4],
     [`componentInteractiveActive${s}`]: c[5],
     [`componentInteractiveFocused${s}`]: c[5],
     [`componentCallToActionInteractive${s}`]: c[4],
-    [`componentCallToActionInteractiveHovered${s}`]: c[5],
+    [`componentCallToActionInteractiveHover${s}`]: c[5],
     [`componentCallToActionInteractiveActive${s}`]: c[6],
     [`componentCallToActionInteractiveFocused${s}`]: c[6],
     [`componentSolidInteractive${s}`]: c[9],
-    [`componentSolidInteractiveHovered${s}`]: c[10],
+    [`componentSolidInteractiveHover${s}`]: c[10],
     [`componentSolidInteractiveActive${s}`]: c[11],
     [`componentSolidInteractiveFocused${s}`]: c[11],
     [`componentNonInteractive${s}`]: c[2],
