@@ -1,7 +1,7 @@
 {
   "name": "bepaint",
   "description": "🎡 Quickly generate elegant themes with minimal code",
-  "version": "0.1.0-beta.2",
+  "version": "0.1.0-beta.3",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
