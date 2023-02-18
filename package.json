@@ -29,7 +29,7 @@
     "typescript": "^4.9.5"
   },
   "scripts": {
-    "build": "rm -rf dist && tsup",
+    "build": "rm -rf dist && tsc && tsup",
     "test": "jest",
     "lint": "tsc && eslint ./src && cspell ./src",
     "prepublishOnly": "npm run build",
